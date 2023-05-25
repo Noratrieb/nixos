@@ -86,6 +86,7 @@
 
   # ndivia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
 
   # TODO: Create a fancontrol config
   hardware.fancontrol.enable = false;
@@ -129,6 +130,7 @@
         vscode
         home-manager
       ];
+      shell = pkgs.fish;
     };
   };
 
@@ -151,6 +153,7 @@
     firefox
     os-prober
     git
+    fish
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
