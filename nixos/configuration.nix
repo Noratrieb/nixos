@@ -127,6 +127,7 @@
       packages = with pkgs; [
         firefox
         vscode
+        home-manager
       ];
     };
   };

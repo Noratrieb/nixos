@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, nur, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -35,17 +35,45 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "nils";
+    homeDirectory = "/home/nils";
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  programs.neovim.enable = true;
+  home.packages = with pkgs; [
+    steam
+    discord
+    spotify
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  programs.firefox = {
+    enable = true;
+    # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    #   ublock-origin
+    #   bitwarden
+    # ];
+    profiles = {
+      nils = {
+        id = 0;
+        name = "nils";
+      };
+    };
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      rust-lang.rust-analyzer
+      usernamehw.errorlens
+    ];
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
