@@ -154,6 +154,13 @@
     os-prober
     git
     fish
+    (steam.override {
+      withPrimus = true;
+      withJava = true;
+      extraPkgs = pkgs: [ bumblebee glxinfo ];
+    }).run
+    # Wine for 32 and 64 bit applications
+    wineWowPackages.stable
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -163,6 +170,13 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  };
+
+  programs.java.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
