@@ -33,7 +33,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "nils";
     homeDirectory = "/home/nils";
@@ -44,11 +43,34 @@
   home.packages = with pkgs; [
     discord
     spotify
+    nixpkgs-fmt
+    rnix-lsp
   ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+
+    userEmail = "48135649+Nilstrieb@users.noreply.github.com";
+    userName = "Nilstrieb";
+
+    aliases = {
+      hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
+      fpush = "push --force-with-lease";
+      resq = "!rebase --autosquash -i $(git merge-base origin/master HEAD)";
+    };
+    difftastic = {
+      enable = true;
+    };
+    extraConfig = {
+      core.autocrlf = false;
+      # wants some sort of attribute set. pkgs.neovim doesnt work either :(
+      # editor = "nvim";
+      pull.ff = "only";
+      init.defaultBranch = "main";
+    };
+  };
 
   programs.firefox = {
     enable = true;
@@ -68,7 +90,7 @@
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
+      jnoortheen.nix-ide
       rust-lang.rust-analyzer
       usernamehw.errorlens
     ];
