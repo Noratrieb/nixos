@@ -77,7 +77,14 @@
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverrides = ''
+        [org.gnome.mutter]
+        experimental-features=['scale-monitor-framebuffer']
+      '';
+      extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+    };
 
     # Configure keymap in X11
     layout = "ch";
@@ -85,6 +92,14 @@
 
     # ndivia drivers
     videoDrivers = [ "nvidia" ];
+
+    # mouse settings
+    # https://unix.stackexchange.com/questions/58900/how-to-scroll-the-screen-using-the-middle-click
+    #libinput.mouse = {
+    #  scrollMethod = "button";
+    #  # 2=middle mouse button
+    #  scrollButton = 2;
+    #};
   };
 
   hardware.opengl.enable = true;

@@ -52,6 +52,7 @@
     spotify
     nixpkgs-fmt
     rnix-lsp
+    fzf
   ];
 
   # Enable home-manager and git
@@ -92,12 +93,18 @@
 
         bookmarks = [
           {
-            name = "NixOS options";
-            url = "https://search.nixos.org/options";
-          }
-          {
-            name = "home-manager options";
-            url = "https://rycee.gitlab.io/home-manager/options.html";
+            name = "Nix sites";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "NixOS options";
+                url = "https://search.nixos.org/options";
+              }
+              {
+                name = "home-manager options";
+                url = "https://rycee.gitlab.io/home-manager/options.html";
+              }
+            ];
           }
         ];
       };
@@ -116,6 +123,9 @@
 
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
   };
 
   programs.zoxide = {
