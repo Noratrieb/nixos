@@ -116,7 +116,6 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
-      rust-lang.rust-analyzer
       usernamehw.errorlens
     ];
   };
