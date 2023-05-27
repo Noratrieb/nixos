@@ -89,6 +89,17 @@
       nils = {
         id = 0;
         name = "nils";
+
+        bookmarks = [
+          {
+            name = "NixOS options";
+            url = "https://search.nixos.org/options";
+          }
+          {
+            name = "home-manager options";
+            url = "https://rycee.gitlab.io/home-manager/options.html";
+          }
+        ];
       };
     };
   };
