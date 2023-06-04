@@ -66,7 +66,7 @@
     aliases = {
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
-      resq = "!git rebase --autosquash -i $(git merge-base origin/master HEAD)";
+      resq = "rebase --autosquash -i";
     };
     difftastic = {
       enable = true;
