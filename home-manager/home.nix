@@ -66,15 +66,14 @@
     aliases = {
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
-      resq = "!rebase --autosquash -i $(git merge-base origin/master HEAD)";
+      resq = "!git rebase --autosquash -i $(git merge-base origin/master HEAD)";
     };
     difftastic = {
       enable = true;
     };
     extraConfig = {
       core.autocrlf = false;
-      # wants some sort of attribute set. pkgs.neovim doesnt work either :(
-      # editor = "nvim";
+      core.editor = "nvim";
       pull.ff = "only";
       init.defaultBranch = "main";
     };
@@ -104,6 +103,10 @@
                 name = "home-manager options";
                 url = "https://rycee.gitlab.io/home-manager/options.html";
               }
+              {
+                name = "nixpkgs search";
+                url = "https://search.nixos.org/packages";
+              }
             ];
           }
         ];
@@ -117,6 +120,9 @@
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       usernamehw.errorlens
+      ms-vscode.cmake-tools
+      ms-vscode.cpptools
+      eamodio.gitlens
     ];
   };
 
