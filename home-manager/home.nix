@@ -123,6 +123,7 @@
       ms-vscode.cmake-tools
       ms-vscode.cpptools
       eamodio.gitlens
+      tamasfe.even-better-toml
     ];
   };
 
