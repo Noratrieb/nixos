@@ -53,6 +53,10 @@
     nixpkgs-fmt
     rnix-lsp
     fzf
+    linuxKernel.packages.linux_5_15.perf
+    cargo-nextest
+    git-absorb
+    gcc
   ];
 
   # Enable home-manager and git
