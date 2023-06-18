@@ -66,7 +66,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
@@ -155,9 +154,9 @@
   services.openssh = {
     enable = false;
     # Forbid root login through SSH.
-    permitRootLogin = "no";
+    settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
 
@@ -172,8 +171,6 @@
     git
     fish
     (steam.override {
-      withPrimus = true;
-      withJava = true;
       extraPkgs = pkgs: [ bumblebee glxinfo ];
     }).run
     # Wine for 32 and 64 bit applications
@@ -191,6 +188,10 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  };
+
+  programs.fish = {
+    enable = true;
   };
 
   programs.java.enable = true;

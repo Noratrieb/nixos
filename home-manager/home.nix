@@ -53,7 +53,7 @@
     nixpkgs-fmt
     rnix-lsp
     fzf
-    linuxKernel.packages.linux_5_15.perf
+    linuxKernel.packages.linux_6_1.perf
     cargo-nextest
     git-absorb
     gcc
@@ -85,14 +85,15 @@
 
   programs.firefox = {
     enable = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      ublock-origin
-      bitwarden
-    ];
     profiles = {
       nils = {
         id = 0;
         name = "nils";
+
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+        ];
 
         bookmarks = [
           {
