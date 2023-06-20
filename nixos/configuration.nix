@@ -132,21 +132,28 @@
   };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    nils = {
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      extraGroups = [ "wheel" "networkmanager" "audio" ];
-      # TODO: This is mostly temporary until home-manager works nicely
-      packages = with pkgs; [
-        firefox
-        vscode
-        minecraft
-        home-manager
-      ];
-      shell = pkgs.fish;
+  users = {
+    users = {
+      nils = {
+        isNormalUser = true;
+        openssh.authorizedKeys.keys = [
+          # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+        ];
+        extraGroups = [ "wheel" "networkmanager" "audio" ];
+        # TODO: This is mostly temporary until home-manager works nicely
+        packages = with pkgs; [
+          firefox
+          vscode
+          minecraft
+          home-manager
+        ];
+        shell = pkgs.fish;
+      };
+    };
+    extraGroups = {
+      vboxusers = {
+        members = [ "nils" ];
+      };
     };
   };
 
@@ -195,6 +202,16 @@
   };
 
   programs.java.enable = true;
+
+  virtualisation = {
+    virtualbox = {
+      host = {
+        enable = true;
+        enableExtensionPack = true;
+      };
+    };
+  };
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
