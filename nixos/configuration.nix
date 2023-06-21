@@ -139,7 +139,7 @@
         openssh.authorizedKeys.keys = [
           # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
         ];
-        extraGroups = [ "wheel" "networkmanager" "audio" ];
+        extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
         # TODO: This is mostly temporary until home-manager works nicely
         packages = with pkgs; [
           firefox
@@ -182,6 +182,7 @@
     }).run
     # Wine for 32 and 64 bit applications
     wineWowPackages.stable
+    virt-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -210,6 +211,7 @@
         enableExtensionPack = true;
       };
     };
+    libvirtd.enable = true;
   };
 
 
