@@ -212,9 +212,6 @@
       };
     };
     libvirtd.enable = true;
-    qemu = {
-      options = [ "-vga std" ];
-    };
   };
 
 
