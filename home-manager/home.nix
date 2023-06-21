@@ -129,6 +129,7 @@
       ms-vscode.cpptools
       eamodio.gitlens
       tamasfe.even-better-toml
+      ms-vscode-remote.remote-ssh
     ];
   };
 
