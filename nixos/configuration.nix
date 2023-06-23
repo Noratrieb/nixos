@@ -52,8 +52,14 @@
     };
   };
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+    extraHosts =
+      ''
+        192.168.122.44 illumos-vm
+      '';
+  };
 
   time.timeZone = "Europe/Zurich";
   # Windows sets the hardware clock in local time by default.
@@ -76,6 +82,7 @@
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
+    desktopManager.wallpaper.mode = "fill";
     desktopManager.gnome = {
       enable = true;
       extraGSettingsOverrides = ''
@@ -183,6 +190,7 @@
     # Wine for 32 and 64 bit applications
     wineWowPackages.stable
     virt-manager
+    feh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
