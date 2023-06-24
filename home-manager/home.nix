@@ -61,6 +61,7 @@
     htop
     ripgrep
     bat
+    postman
   ];
 
   # Enable home-manager and git
