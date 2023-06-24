@@ -191,6 +191,7 @@
     wineWowPackages.stable
     virt-manager
     feh
+    podman
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -220,6 +221,11 @@
       };
     };
     libvirtd.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 
 
