@@ -76,6 +76,7 @@
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
       resq = "rebase --autosquash -i";
+      pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
     };
     difftastic = {
       enable = true;
