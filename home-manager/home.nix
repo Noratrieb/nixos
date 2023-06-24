@@ -57,6 +57,7 @@
     cargo-nextest
     git-absorb
     gcc
+    jetbrains.idea-ultimate
   ];
 
   # Enable home-manager and git
