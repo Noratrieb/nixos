@@ -58,6 +58,9 @@
     git-absorb
     gcc
     jetbrains.idea-ultimate
+    htop
+    ripgrep
+    bat
   ];
 
   # Enable home-manager and git
