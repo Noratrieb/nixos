@@ -62,6 +62,7 @@
     ripgrep
     bat
     postman
+    rustup-toolchain-install-master
   ];
 
   # Enable home-manager and git
