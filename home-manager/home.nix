@@ -6,7 +6,10 @@
 , config
 , pkgs
 , ...
-}: {
+}:
+let customPkgs = import ../custom-pkgs/default.nix pkgs;
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -65,6 +68,7 @@
     rustup-toolchain-install-master
     inferno
     gh
+    customPkgs.cargo-bisect-rustc
   ];
 
   # Enable home-manager and git
