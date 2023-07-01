@@ -64,6 +64,7 @@
     postman
     rustup-toolchain-install-master
     inferno
+    gh
   ];
 
   # Enable home-manager and git
