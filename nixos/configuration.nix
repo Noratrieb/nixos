@@ -213,12 +213,6 @@
   programs.java.enable = true;
 
   virtualisation = {
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
-      };
-    };
     libvirtd.enable = true;
     podman = {
       enable = true;
