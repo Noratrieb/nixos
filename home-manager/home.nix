@@ -68,6 +68,7 @@ in
     rustup-toolchain-install-master
     inferno
     gh
+    obsidian
     customPkgs.cargo-bisect-rustc
   ];
 
