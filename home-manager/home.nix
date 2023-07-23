@@ -70,6 +70,7 @@ in
     gh
     obsidian
     customPkgs.cargo-bisect-rustc
+    audacity
   ];
 
   # Enable home-manager and git
@@ -144,6 +145,7 @@ in
       eamodio.gitlens
       tamasfe.even-better-toml
       ms-vscode-remote.remote-ssh
+      esbenp.prettier-vscode
     ];
   };
 
