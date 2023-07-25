@@ -7,7 +7,18 @@
 , pkgs
 , ...
 }:
-let customPkgs = import ../custom-pkgs/default.nix pkgs;
+let
+  customPkgs = import ../custom-pkgs/default.nix pkgs;
+  extra-vscode-extensions = {
+    dtsvet.vscode-wasm = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+      mktplcRef = {
+        publisher = "dtsvet";
+        name = "vscode-wasm";
+        version = "1.4.1";
+        sha256 = "sha256-zs7E3pxf4P8kb3J+5zLoAO2dvTeepuCuBJi5s354k0I=";
+      };
+    };
+  };
 in
 {
   # You can import other home-manager modules here
@@ -146,6 +157,7 @@ in
       tamasfe.even-better-toml
       ms-vscode-remote.remote-ssh
       esbenp.prettier-vscode
+      extra-vscode-extensions.dtsvet.vscode-wasm
     ];
   };
 
