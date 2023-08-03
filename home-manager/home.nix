@@ -157,6 +157,7 @@ in
       tamasfe.even-better-toml
       ms-vscode-remote.remote-ssh
       esbenp.prettier-vscode
+      dbaeumer.vscode-eslint
       extra-vscode-extensions.dtsvet.vscode-wasm
     ];
   };
