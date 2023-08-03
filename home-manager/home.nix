@@ -9,16 +9,6 @@
 }:
 let
   customPkgs = import ../custom-pkgs/default.nix pkgs;
-  extra-vscode-extensions = {
-    dtsvet.vscode-wasm = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-      mktplcRef = {
-        publisher = "dtsvet";
-        name = "vscode-wasm";
-        version = "1.4.1";
-        sha256 = "sha256-zs7E3pxf4P8kb3J+5zLoAO2dvTeepuCuBJi5s354k0I=";
-      };
-    };
-  };
 in
 {
   # You can import other home-manager modules here
@@ -158,8 +148,28 @@ in
       ms-vscode-remote.remote-ssh
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
-      extra-vscode-extensions.dtsvet.vscode-wasm
-    ];
+      (pkgs.vscode-utils.buildVscodeExtension {
+        name = "riverdelta";
+        version = "0.1.0";
+        src = builtins.fetchGit {
+          url = "https://github.com/Nilstrieb/riverdelta";
+          rev = "86dec70f686964615a93c5316aae460bc0fc5d6d";
+        };
+        vscodeExtPublisher = "Nilstrieb";
+        vscodeExtName = "riverdelta";
+        vscodeExtUniqueId = "Nilstrieb.riverdelta";
+        buildPhase = ''
+          runHook preBuild;
+          cd ./vscode
+          runHook postBuild;
+        '';
+      })
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+      publisher = "dtsvet";
+      name = "vscode-wasm";
+      version = "1.4.1";
+      sha256 = "sha256-zs7E3pxf4P8kb3J+5zLoAO2dvTeepuCuBJi5s354k0I=";
+    }];
   };
 
   programs.fish = {
