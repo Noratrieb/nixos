@@ -153,7 +153,7 @@ in
         version = "0.1.0";
         src = builtins.fetchGit {
           url = "https://github.com/Nilstrieb/riverdelta";
-          rev = "86dec70f686964615a93c5316aae460bc0fc5d6d";
+          rev = "64d81b56084d9a7663517b367b4533fb8ea83a92";
         };
         vscodeExtPublisher = "Nilstrieb";
         vscodeExtName = "riverdelta";
