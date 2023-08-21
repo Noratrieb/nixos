@@ -151,7 +151,6 @@
         packages = with pkgs; [
           firefox
           vscode
-          minecraft
           home-manager
         ];
         shell = pkgs.fish;

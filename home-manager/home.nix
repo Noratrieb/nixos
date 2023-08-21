@@ -72,6 +72,7 @@ in
     obsidian
     customPkgs.cargo-bisect-rustc
     audacity
+    prismlauncher
   ];
 
   # Enable home-manager and git
