@@ -165,12 +165,20 @@ in
           runHook postBuild;
         '';
       })
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-      publisher = "dtsvet";
-      name = "vscode-wasm";
-      version = "1.4.1";
-      sha256 = "sha256-zs7E3pxf4P8kb3J+5zLoAO2dvTeepuCuBJi5s354k0I=";
-    }];
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        publisher = "dtsvet";
+        name = "vscode-wasm";
+        version = "1.4.1";
+        sha256 = "sha256-zs7E3pxf4P8kb3J+5zLoAO2dvTeepuCuBJi5s354k0I=";
+      }
+      {
+        publisher = "redhat";
+        name = "ansible";
+        version = "2.7.98";
+        sha256 = "sha256-b3Z40IeQbtYci2LA4/OlJkfqMB78cWRNTNWd89lfhy4=";
+      }
+    ];
   };
 
   programs.fish = {
