@@ -150,6 +150,7 @@ in
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
       ms-python.python
+      redhat.vscode-yaml
       (pkgs.vscode-utils.buildVscodeExtension {
         name = "riverdelta";
         version = "0.1.0";
