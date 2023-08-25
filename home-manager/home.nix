@@ -149,6 +149,7 @@ in
       ms-vscode-remote.remote-ssh
       esbenp.prettier-vscode
       dbaeumer.vscode-eslint
+      ms-python.python
       (pkgs.vscode-utils.buildVscodeExtension {
         name = "riverdelta";
         version = "0.1.0";
