@@ -151,22 +151,6 @@ in
       dbaeumer.vscode-eslint
       ms-python.python
       redhat.vscode-yaml
-      (pkgs.vscode-utils.buildVscodeExtension {
-        name = "riverdelta";
-        version = "0.1.0";
-        src = builtins.fetchGit {
-          url = "https://github.com/Nilstrieb/riverdelta";
-          rev = "64d81b56084d9a7663517b367b4533fb8ea83a92";
-        };
-        vscodeExtPublisher = "Nilstrieb";
-        vscodeExtName = "riverdelta";
-        vscodeExtUniqueId = "Nilstrieb.riverdelta";
-        buildPhase = ''
-          runHook preBuild;
-          cd ./vscode
-          runHook postBuild;
-        '';
-      })
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
@@ -186,6 +170,23 @@ in
         version = "0.3.0";
         sha256 = "sha256-1yiOnvC2w33kiPRdQYskee38Cid/GOj9becLadP1fUY=";
       }
+    ] ++ [
+      (pkgs.vscode-utils.buildVscodeExtension {
+        name = "riverdelta";
+        version = "0.1.0";
+        src = builtins.fetchGit {
+          url = "https://github.com/Nilstrieb/riverdelta";
+          rev = "64d81b56084d9a7663517b367b4533fb8ea83a92";
+        };
+        vscodeExtPublisher = "Nilstrieb";
+        vscodeExtName = "riverdelta";
+        vscodeExtUniqueId = "Nilstrieb.riverdelta";
+        buildPhase = ''
+          runHook preBuild;
+          cd ./vscode
+          runHook postBuild;
+        '';
+      })
     ];
   };
 
