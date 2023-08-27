@@ -21,7 +21,42 @@
         "type": "github"
       }
     },
+    "minegrub-theme": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1689938346,
+        "narHash": "sha256-uB6B1c0vFwng5SHLNxR5LgPfxOW26O8TL0hCn02uwCI=",
+        "owner": "Lxtharia",
+        "repo": "minegrub-theme",
+        "rev": "b6f8a3a7e2fd22d72e2dbdaf563ad0bcb5c78e45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lxtharia",
+        "repo": "minegrub-theme",
+        "rev": "b6f8a3a7e2fd22d72e2dbdaf563ad0bcb5c78e45",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1693003285,
+        "narHash": "sha256-5nm4yrEHKupjn62MibENtfqlP6pWcRTuSKrMiH9bLkc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5690c4271f2998c304a45c91a0aeb8fb69feaea7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1692794066,
         "narHash": "sha256-H0aG8r16dj0x/Wz6wQhQxc9V7AsObOiHPaKxQgH6Y08=",
@@ -55,7 +90,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "minegrub-theme": "minegrub-theme",
+        "nixpkgs": "nixpkgs_2",
         "nur": "nur"
       }
     }
