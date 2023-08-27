@@ -71,10 +71,16 @@
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+    minegrub-theme = {
+      enable = true;
+      # splash = ":3";
+    };
+  };
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -190,6 +196,7 @@
     wineWowPackages.stable
     virt-manager
     podman
+    neofetch # for the grub theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
