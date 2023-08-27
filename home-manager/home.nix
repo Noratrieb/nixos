@@ -151,6 +151,8 @@ in
       dbaeumer.vscode-eslint
       ms-python.python
       redhat.vscode-yaml
+      mads-hartmann.bash-ide-vscode
+      ms-azuretools.vscode-docker
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
