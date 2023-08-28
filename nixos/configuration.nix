@@ -171,7 +171,7 @@
 
   # SSH Server, maybe enable at some point
   services.openssh = {
-    enable = false;
+    enable = true;
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
