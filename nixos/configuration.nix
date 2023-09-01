@@ -21,12 +21,12 @@
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
-      # vquic is sad right now.
-      # (final: prev: {
-      #   curl = prev.curl.override {
-      #     http3Support = true;
-      #   };
-      # })
+      # final: prev: {
+      #  curl = prev.curl.override {
+      #    # vquic is sad right now.
+      #    # http3Support = true;
+      #  };
+      # )
     ];
     # Configure your nixpkgs instance
     config = {
@@ -184,7 +184,10 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    curl
+    (curl.override {
+      # opensslSupport = false;
+      # rustlsSupport = true;
+    })
     firefox
     os-prober
     git
