@@ -185,6 +185,9 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     (curl.override {
+      # error: implicit declaration of function 'SSL_set_quic_use_legacy_codepoint' :(
+      # http3Support = true;
+      # curl: (60) rustls_connection_process_new_packets: invalid peer certificate: BadSignature :(
       # opensslSupport = false;
       # rustlsSupport = true;
     })
