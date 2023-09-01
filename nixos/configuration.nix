@@ -21,11 +21,11 @@
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
+      # vquic is sad right now.
       # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
+      #   curl = prev.curl.override {
+      #     http3Support = true;
+      #   };
       # })
     ];
     # Configure your nixpkgs instance
