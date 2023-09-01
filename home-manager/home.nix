@@ -66,6 +66,7 @@ in
     linuxKernel.packages.linux_6_1.perf
     nixpkgs-fmt
     obsidian
+    obs-studio
     postman
     prismlauncher
     ripgrep
