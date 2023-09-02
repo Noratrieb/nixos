@@ -51,7 +51,9 @@ in
   programs.neovim.enable = true;
   home.packages = with pkgs; [
     audacity
+    bacon
     bat
+    cargo-expand
     cargo-nextest
     customPkgs.cargo-bisect-rustc
     discord
@@ -63,6 +65,7 @@ in
     inferno
     jetbrains.idea-ultimate
     linuxKernel.packages.linux_6_1.perf
+    mold # For global .cargo/config.toml
     nixpkgs-fmt
     obsidian
     obs-studio
