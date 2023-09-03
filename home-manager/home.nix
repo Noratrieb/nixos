@@ -61,6 +61,7 @@ in
     gcc
     gh
     git-absorb
+    git-crypt
     htop
     inferno
     jetbrains.idea-ultimate
