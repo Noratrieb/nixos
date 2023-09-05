@@ -203,6 +203,7 @@
     virt-manager
     podman
     neofetch # for the grub theme
+    podman-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
