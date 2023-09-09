@@ -72,6 +72,7 @@ in
     obs-studio
     postman
     prismlauncher
+    python3
     ripgrep
     rnix-lsp
     rustup-toolchain-install-master
