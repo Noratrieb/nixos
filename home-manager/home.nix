@@ -44,21 +44,30 @@ in
     git-absorb
     git-crypt
     htop
+    hyperfine
     inferno
     jetbrains.idea-ultimate
     linuxKernel.packages.linux_6_1.perf
-    mold # For global .cargo/config.toml
     nixpkgs-fmt
-    obsidian
     obs-studio
+    obsidian
     postman
     prismlauncher
     python3
     ripgrep
     rnix-lsp
     rustup-toolchain-install-master
+    samply
     spotify
   ];
+
+  home.file.".cargo/config.toml" = {
+    text = ''
+      [target.x86_64-unknown-linux-gnu]
+      linker = "clang"
+      rustflags = ["-Clink-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-Ctarget-cpu=native"]
+    '';
+  };
 
   programs.home-manager.enable = true;
 

@@ -152,13 +152,11 @@
         isNormalUser = true;
         openssh.authorizedKeys.keys = [
           # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0n1ikUG9rYqobh7WpAyXrqZqxQoQ2zNJrFPj12gTpP"
         ];
         extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
-        # TODO: This is mostly temporary until home-manager works nicely
         packages = with pkgs; [
-          firefox
           vscode
-          home-manager
         ];
         shell = pkgs.fish;
       };
@@ -170,20 +168,15 @@
     };
   };
 
-  # SSH Server, maybe enable at some point
   services.openssh = {
     enable = true;
-    # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
-    # Use keys only. Remove if you want to SSH using password (not recommended)
     settings.PasswordAuthentication = false;
   };
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     (curl.override {
       # error: implicit declaration of function 'SSL_set_quic_use_legacy_codepoint' :(

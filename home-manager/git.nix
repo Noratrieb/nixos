@@ -16,7 +16,7 @@
     };
     extraConfig = {
       core.autocrlf = false;
-      core.editor = "nvim";
+      core.editor = "${pkgs.neovim}/bin/nvim";
       pull.ff = "only";
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
