@@ -18,28 +18,10 @@ in
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./git.nix
+    ./firefox.nix
+    ./vscode.nix
   ];
-
-  /*nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
-    };
-  };*/
 
   home = {
     username = "nils";
@@ -79,10 +61,6 @@ in
   ];
 
   programs.home-manager.enable = true;
-
-  programs.git = import ./git.nix { inherit pkgs; };
-  programs.firefox = import ./firefox.nix { inherit pkgs; };
-  programs.vscode = import ./vscode.nix { inherit pkgs; };
 
   programs.fish = {
     enable = true;
