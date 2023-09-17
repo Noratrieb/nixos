@@ -20,7 +20,7 @@ in
     # ./nvim.nix
   ];
 
-  nixpkgs = {
+  /*nixpkgs = {
     # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
@@ -32,7 +32,6 @@ in
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.nur.overlay
     ];
     # Configure your nixpkgs instance
     config = {
@@ -40,7 +39,7 @@ in
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
     };
-  };
+  };*/
 
   home = {
     username = "nils";

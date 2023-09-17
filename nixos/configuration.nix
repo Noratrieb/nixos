@@ -20,7 +20,7 @@
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-
+      inputs.nur.overlay
       # final: prev: {
       #  curl = prev.curl.override {
       #    # vquic is sad right now.
@@ -32,6 +32,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      # allowUnfreePredicate = (_: true);
     };
   };
 
