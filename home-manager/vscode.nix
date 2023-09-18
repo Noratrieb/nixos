@@ -1,20 +1,34 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
     userSettings = {
+      # Note: In settings.json, `.` in a key is not equivalent to a nested object property.
+      "[nix]"."editor.formatOnSave" = true;
+      "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
       "nix.serverSettings" = {
-        formatting = {
-          command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+        nil = {
+          formatting = {
+            command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+          };
         };
       };
+      "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "window.zoomLevel" = 1;
+      "terminal.integrated.enableMultiLinePasteWarning" = false;
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
+      rust-lang.rust-analyzer
       usernamehw.errorlens
       ms-vscode.cmake-tools
       ms-vscode.cpptools
@@ -27,7 +41,7 @@
       redhat.vscode-yaml
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
-      # bmalehorn.vscode-fish
+      bmalehorn.vscode-fish
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
