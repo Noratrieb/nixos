@@ -32,6 +32,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      nvidia.acceptLicense = true;
       # allowUnfreePredicate = (_: true);
     };
   };
