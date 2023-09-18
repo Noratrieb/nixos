@@ -18,6 +18,7 @@ in
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./common.nix
     ./git.nix
     ./firefox.nix
     ./vscode.nix
@@ -28,47 +29,18 @@ in
     homeDirectory = "/home/nils";
   };
 
-  # Add stuff for your user as you see fit:
-  programs.neovim.enable = true;
   home.packages = with pkgs; [
     audacity
-    bacon
-    bat
-    cargo-expand
-    cargo-nextest
     customPkgs.cargo-bisect-rustc
     discord
-    fzf
-    gcc
-    gh
-    git-absorb
-    git-crypt
-    htop
-    hyperfine
-    inferno
     jetbrains.idea-ultimate
     linuxKernel.packages.linux_6_1.perf
     obs-studio
     obsidian
     postman
     prismlauncher
-    python3
-    ripgrep
-    rnix-lsp
-    rustup-toolchain-install-master
-    samply
     spotify
-  ];
-
-  home.file.".cargo/config.toml" = {
-    text = ''
-      [target.x86_64-unknown-linux-gnu]
-      linker = "clang"
-      rustflags = ["-Clink-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-Ctarget-cpu=native"]
-    '';
-  };
-
-  programs.home-manager.enable = true;
+  ] ++ import ./common-packages.nix { inherit pkgs; };
 
   programs.fish = {
     enable = true;
@@ -77,14 +49,6 @@ in
     '';
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "22.11";
 }
