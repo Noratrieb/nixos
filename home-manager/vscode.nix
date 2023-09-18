@@ -43,6 +43,7 @@
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
       bmalehorn.vscode-fish
+      nvarner.typst-lsp
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
