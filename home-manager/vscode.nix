@@ -25,6 +25,7 @@
       "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "window.zoomLevel" = 1;
       "terminal.integrated.enableMultiLinePasteWarning" = false;
+      "git.confirmSync" = false;
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
