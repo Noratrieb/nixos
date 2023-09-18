@@ -4,6 +4,15 @@
     package = pkgs.vscodium;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
+    settings = {
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      "nix.serverSettings" = {
+        formatting = {
+          command = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
+        };
+      };
+    };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       usernamehw.errorlens
