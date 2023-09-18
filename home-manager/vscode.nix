@@ -4,12 +4,12 @@
     package = pkgs.vscodium;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
-    settings = {
+    userSettings = {
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
       "nix.serverSettings" = {
         formatting = {
-          command = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
+          command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
         };
       };
     };
@@ -27,6 +27,7 @@
       redhat.vscode-yaml
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
+      # bmalehorn.vscode-fish
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";

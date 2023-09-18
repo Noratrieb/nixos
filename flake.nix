@@ -32,9 +32,24 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nils = import ./home-manager/home.nix;
+            home-manager.users.nils = import ./home-manager/desktop.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
+        ];
+      };
+    };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#nils@nixos'
+    homeConfigurations = {
+      "nilsh@LAPTOP-Nils" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        # > Our main home-manager configuration file <
+        modules = [
+          ./home-manager/common.nix
+          ./home-manager/laptop.nix
+          ./home-manager/git.nix
         ];
       };
     };
