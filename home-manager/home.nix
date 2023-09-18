@@ -48,7 +48,6 @@ in
     inferno
     jetbrains.idea-ultimate
     linuxKernel.packages.linux_6_1.perf
-    nixpkgs-fmt
     obs-studio
     obsidian
     postman
