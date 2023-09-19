@@ -44,6 +44,7 @@
       ms-azuretools.vscode-docker
       bmalehorn.vscode-fish
       nvarner.typst-lsp
+      github.vscode-github-actions
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
