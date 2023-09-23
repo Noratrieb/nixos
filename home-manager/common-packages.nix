@@ -5,15 +5,16 @@
   cargo-nextest
   fzf
   gcc
+  gdb
   gh
   git-absorb
   git-crypt
   htop
   hyperfine
   inferno
+  p7zip
   python3
   ripgrep
   rustup-toolchain-install-master
   samply
-  p7zip
 ]
