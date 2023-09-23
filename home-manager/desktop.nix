@@ -47,6 +47,9 @@ in
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
+    shellAbbrs = {
+      flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
+    };
   };
 
   # Nicely reload system units when changing configs
