@@ -26,6 +26,7 @@
       "window.zoomLevel" = 1;
       "terminal.integrated.enableMultiLinePasteWarning" = false;
       "git.confirmSync" = false;
+      "debug.allowBreakpointsEverywhere" = false;
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
@@ -45,6 +46,7 @@
       bmalehorn.vscode-fish
       nvarner.typst-lsp
       github.vscode-github-actions
+      vadimcn.vscode-lldb
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
