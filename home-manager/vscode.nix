@@ -47,6 +47,7 @@
       nvarner.typst-lsp
       github.vscode-github-actions
       vadimcn.vscode-lldb
+      ms-vscode.hexeditor
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         publisher = "dtsvet";
