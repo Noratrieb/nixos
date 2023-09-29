@@ -10,6 +10,7 @@
       fpush = "push --force-with-lease";
       resq = "rebase --autosquash -i";
       pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
+      sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${pkgs.lib.getExe pkgs.fzf})";
     };
     difftastic = {
       enable = true;
