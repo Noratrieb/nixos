@@ -1,4 +1,4 @@
-pkgs: pkgs.rustPlatform.buildRustPackage rec {
+pkgs: pkgs.rustPlatform.buildRustPackage {
   pname = "cargo-bisect-rustc";
   version = "0.6.7";
 

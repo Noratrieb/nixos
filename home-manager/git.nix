@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.git = {
     enable = true;
 
@@ -10,14 +10,14 @@
       fpush = "push --force-with-lease";
       resq = "rebase --autosquash -i";
       pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
-      sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${pkgs.lib.getExe pkgs.fzf})";
+      sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${lib.getExe' pkgs.fzf "fzf"})";
     };
     difftastic = {
       enable = true;
     };
     extraConfig = {
       core.autocrlf = false;
-      core.editor = "${pkgs.neovim}/bin/nvim";
+      core.editor = "${lib.getExe pkgs.neovim}";
       pull.ff = "only";
       push.autoSetupRemote = true;
       init.defaultBranch = "main";

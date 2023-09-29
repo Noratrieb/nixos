@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -9,11 +9,11 @@
       "[nix]"."editor.formatOnSave" = true;
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      "nix.serverPath" = "${lib.getExe pkgs.nil}";
       "nix.serverSettings" = {
         nil = {
           formatting = {
-            command = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+            command = [ "${lib.getExe pkgs.nixpkgs-fmt}" ];
           };
         };
       };
