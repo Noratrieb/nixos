@@ -9,8 +9,8 @@
   home.file.".cargo/config.toml" = {
     text = ''
       [target.x86_64-unknown-linux-gnu]
-      linker = "${pkgs.llvmPackages_16.clang}/bin/clang"
-      rustflags = ["-Clink-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-Ctarget-cpu=native"]
+      linker = "${lib.getExe pkgs.llvmPackages_16.clang}"
+      rustflags = ["-Clink-arg=-fuse-ld=${lib.getExe' pkgs.mold "mold"}", "-Ctarget-cpu=native"]
     '';
   };
 
