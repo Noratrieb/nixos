@@ -27,6 +27,7 @@
       "terminal.integrated.enableMultiLinePasteWarning" = false;
       "git.confirmSync" = false;
       "debug.allowBreakpointsEverywhere" = false;
+      "rust-analyzer.server.path" = "rust-analyzer";
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
