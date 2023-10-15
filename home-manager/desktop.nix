@@ -40,6 +40,8 @@ in
     postman
     prismlauncher
     spotify
+    # rustup from nix for rust :)
+    rustup
   ] ++ import ./common-packages.nix { inherit pkgs; };
 
   programs.fish = {
