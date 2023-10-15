@@ -30,7 +30,6 @@
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
-      rust-lang.rust-analyzer
       usernamehw.errorlens
       ms-vscode.cmake-tools
       ms-vscode.cpptools
@@ -49,6 +48,12 @@
       vadimcn.vscode-lldb
       ms-vscode.hexeditor
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        publisher = "rust-lang";
+        name = "rust-analyzer";
+        version = "0.4.1695";
+        sha256 = "sha256-dhZN7xapaOI7A7Bn7DrnSuGO1JI2zA7LU8jb5PYmWXM=";
+      }
       {
         publisher = "dtsvet";
         name = "vscode-wasm";
