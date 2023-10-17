@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.vscode;
     enableUpdateCheck = false;
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
     userSettings = {
       # Note: In settings.json, `.` in a key is not equivalent to a nested object property.
       "[nix]"."editor.formatOnSave" = true;
@@ -27,34 +27,28 @@
       "terminal.integrated.enableMultiLinePasteWarning" = false;
       "git.confirmSync" = false;
       "debug.allowBreakpointsEverywhere" = false;
-      "rust-analyzer.server.path" = lib.getExe' pkgs.rustup "rust-analyzer";
     };
     extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      usernamehw.errorlens
-      ms-vscode.cmake-tools
-      ms-vscode.cpptools
-      eamodio.gitlens
-      tamasfe.even-better-toml
-      ms-vscode-remote.remote-ssh
-      esbenp.prettier-vscode
+      bmalehorn.vscode-fish
       dbaeumer.vscode-eslint
-      ms-python.python
-      redhat.vscode-yaml
+      eamodio.gitlens
+      esbenp.prettier-vscode
+      github.vscode-github-actions
+      jnoortheen.nix-ide
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
-      bmalehorn.vscode-fish
-      nvarner.typst-lsp
-      github.vscode-github-actions
-      vadimcn.vscode-lldb
+      ms-python.python
+      ms-vscode-remote.remote-ssh
+      ms-vscode.cmake-tools
+      ms-vscode.cpptools
       ms-vscode.hexeditor
+      nvarner.typst-lsp
+      redhat.vscode-yaml
+      rust-lang.rust-analyzer
+      tamasfe.even-better-toml
+      usernamehw.errorlens
+      vadimcn.vscode-lldb
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        publisher = "rust-lang";
-        name = "rust-analyzer";
-        version = "0.4.1695";
-        sha256 = "sha256-dhZN7xapaOI7A7Bn7DrnSuGO1JI2zA7LU8jb5PYmWXM=";
-      }
       {
         publisher = "dtsvet";
         name = "vscode-wasm";
