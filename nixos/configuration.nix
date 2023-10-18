@@ -84,6 +84,11 @@
     };
   };
 
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -146,6 +151,11 @@
     #media-session.enable = true;
   };
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+  };
+
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users = {
     users = {
@@ -179,13 +189,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    (curl.override {
-      # error: implicit declaration of function 'SSL_set_quic_use_legacy_codepoint' :(
-      # http3Support = true;
-      # curl: (60) rustls_connection_process_new_packets: invalid peer certificate: BadSignature :(
-      # opensslSupport = false;
-      # rustlsSupport = true;
-    })
+    curl
     firefox
     os-prober
     git
@@ -201,6 +205,7 @@
     podman-compose
     man-pages
     man-pages-posix
+    tailscale
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -236,10 +241,17 @@
   hardware.openrazer.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedTCPPorts = [ /*SSH*/ 22 ];
+
+    # https://github.com/tailscale/tailscale/issues/4432#issuecomment-1112819111
+    checkReversePath = "loose";
+  };
+
+  networking.interfaces.enp39s0.wakeOnLan.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
