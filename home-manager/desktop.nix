@@ -37,7 +37,6 @@ in
     linuxKernel.packages.linux_6_1.perf
     obs-studio
     obsidian
-    postman
     prismlauncher
     spotify
     # rustup from nix for rust :)
