@@ -37,7 +37,9 @@
       jnoortheen.nix-ide
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
-      ms-python.python
+      # the server fails to build temporarily
+      # https://github.com/NixOS/nixpkgs/issues/263493
+      # ms-python.python
       ms-vscode-remote.remote-ssh
       ms-vscode.cmake-tools
       ms-vscode.cpptools
