@@ -69,6 +69,12 @@
         version = "0.3.0";
         sha256 = "sha256-1yiOnvC2w33kiPRdQYskee38Cid/GOj9becLadP1fUY=";
       }
+      {
+        publisher = "arthurwang";
+        name = "vsc-prolog";
+        version = "0.8.23";
+        sha256 = "sha256-Da2dCpruVqzP3g1hH0+TyvvEa1wEwGXgvcmIq9B/2cQ=";
+      }
     ] ++ [
       (pkgs.vscode-utils.buildVscodeExtension {
         name = "riverdelta";
