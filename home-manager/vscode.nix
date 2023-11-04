@@ -27,6 +27,8 @@
       "terminal.integrated.enableMultiLinePasteWarning" = false;
       "git.confirmSync" = false;
       "debug.allowBreakpointsEverywhere" = false;
+
+      "prolog.executablePath" = lib.getExe pkgs.swiProlog;
     };
     extensions = with pkgs.vscode-extensions; [
       bmalehorn.vscode-fish
