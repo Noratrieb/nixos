@@ -6,6 +6,7 @@
     mutableExtensionsDir = true;
     userSettings = {
       # Note: In settings.json, `.` in a key is not equivalent to a nested object property.
+      # Language-specific
       "[nix]"."editor.formatOnSave" = true;
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
@@ -17,18 +18,21 @@
           };
         };
       };
+      "prolog.executablePath" = lib.getExe pkgs.swiProlog;
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+
+      # Generic
       "window.zoomLevel" = 1;
       "terminal.integrated.enableMultiLinePasteWarning" = false;
       "git.confirmSync" = false;
       "debug.allowBreakpointsEverywhere" = false;
-
-      "prolog.executablePath" = lib.getExe pkgs.swiProlog;
+      # "editor.fontFamily" = "'Monaspace Neon Var', Arial";
+      "editor.fontLigatures" = true;
     };
     extensions = with pkgs.vscode-extensions; [
       bmalehorn.vscode-fish
@@ -76,6 +80,12 @@
         name = "vsc-prolog";
         version = "0.8.23";
         sha256 = "sha256-Da2dCpruVqzP3g1hH0+TyvvEa1wEwGXgvcmIq9B/2cQ=";
+      }
+      {
+        publisher = "evan-buss";
+        name = "font-switcher";
+        version = "4.1.0";
+        sha256 = "sha256-KkXUfA/W73kRfs1TpguXtZvBXFiSMXXzU9AYZGwpVsY=";
       }
     ] ++ [
       (pkgs.vscode-utils.buildVscodeExtension {

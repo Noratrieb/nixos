@@ -1,7 +1,11 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+let
+  customPkgs = import ../custom-pkgs/default.nix pkgs;
+in
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -150,6 +154,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  fonts.packages = with pkgs; [ fira-code customPkgs.monaspace ];
 
   services.tailscale = {
     enable = true;
