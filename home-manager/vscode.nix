@@ -33,6 +33,7 @@
       "debug.allowBreakpointsEverywhere" = false;
       # "editor.fontFamily" = "'Monaspace Neon Var', Arial";
       "editor.fontLigatures" = true;
+      "terminal.integrated.scrollback" = 20000;
     };
     extensions = with pkgs.vscode-extensions; [
       bmalehorn.vscode-fish
