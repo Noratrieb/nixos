@@ -31,6 +31,7 @@ in
 
   home.packages = with pkgs; [
     audacity
+    customPkgs.cargo-mommy
     customPkgs.cargo-bisect-rustc
     discord
     jetbrains.idea-ultimate
@@ -50,6 +51,10 @@ in
     '';
     shellAbbrs = {
       flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
+
+    };
+    shellAliases = {
+      x = "CARGO=${lib.getExe customPkgs.x} ${lib.getExe customPkgs.cargo-mommy}";
     };
   };
 

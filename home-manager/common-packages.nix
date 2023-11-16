@@ -1,8 +1,13 @@
-{ pkgs, ... }: with pkgs; [
+{ pkgs, ... }:
+let
+  customPkgs = import ../custom-pkgs/default.nix pkgs;
+in
+with pkgs; [
   bacon
   bat
   cargo-expand
   cargo-nextest
+  customPkgs.cargo-mommy
   fzf
   gcc
   gdb
