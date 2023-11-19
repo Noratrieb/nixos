@@ -54,7 +54,7 @@ in
 
     };
     shellAliases = {
-      x = "CARGO=${lib.getExe customPkgs.x} ${lib.getExe customPkgs.cargo-mommy}";
+      x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe customPkgs.cargo-mommy}";
     };
   };
 
