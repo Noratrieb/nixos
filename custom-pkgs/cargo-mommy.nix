@@ -8,12 +8,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "Gankra";
     repo = "cargo-mommy";
-    rev = "6feb98f10ede68c82d99f70aa79cb3a53530dc88";
-    hash = "sha256-DuPDF594KgItrDzjFxP2xHNuzziZCmq5bCrhCh71Y1U=";
-
+    rev = "0d96506db241003166e32deb22ad0ab0fc52c16c";
+    hash = "sha256-SIL7ExSRVBXr7Z+ye+rjjUpK6WS/fytvfhj3WPPdenc=";
   };
 
-  cargoSha256 = "sha256-YkKHlLv6w3PHjv9Z94QUUO41v0W1FJ7zAUoTsKfaQG0=";
+  cargoSha256 = "sha256-hdWYvWNOko6wlffv2Vb3xTYfh9mQgLlON8EVKVkWUV0=";
 
   meta = with lib; {
     description = "Cargo wrapper that encourages you after running commands";
