@@ -51,7 +51,7 @@ in
     '';
     shellAbbrs = {
       flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
-
+      g = "git";
     };
     shellAliases = {
       x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe customPkgs.cargo-mommy}";
