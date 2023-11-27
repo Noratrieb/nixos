@@ -6,6 +6,13 @@
     userName = "Nilstrieb";
 
     aliases = {
+      # simple aliases
+      s = "status";
+      rc = "rebase --continue";
+      ra = "rebase --abort";
+
+      # complex renames
+      # TODO: use git-revise
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
       resq = "rebase --autosquash -i";
