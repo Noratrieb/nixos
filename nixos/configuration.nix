@@ -211,6 +211,7 @@ in
     podman-compose
     man-pages
     man-pages-posix
+    bpftrace
     tailscale
   ];
 
