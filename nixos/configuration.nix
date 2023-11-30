@@ -234,7 +234,12 @@ in
   programs.java.enable = true;
 
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+      };
+    };
     podman = {
       enable = true;
       dockerCompat = true;
