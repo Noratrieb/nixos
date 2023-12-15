@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, inputs, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -44,14 +44,13 @@
       jnoortheen.nix-ide
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
-      # the server fails to build temporarily
-      # https://github.com/NixOS/nixpkgs/issues/263493
-      # ms-python.python
+      ms-python.python
       ms-vscode-remote.remote-ssh
       ms-vscode.cmake-tools
       ms-vscode.cpptools
       ms-vscode.hexeditor
-      nvarner.typst-lsp
+      # https://github.com/NixOS/nixpkgs/issues/273835
+      (import inputs.nixpkgs-stable { system = "x86_64-linux"; }).vscode-extensions.nvarner.typst-lsp
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
