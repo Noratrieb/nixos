@@ -37,7 +37,9 @@ in
       # Disable if you don't want unfree packages
       allowUnfree = true;
       nvidia.acceptLicense = true;
-      # allowUnfreePredicate = (_: true);
+      permittedInsecurePackages = [
+        "electron-25.9.0" # Temporary fix until the next obsidian release: https://github.com/NixOS/nixpkgs/issues/273611
+      ];
     };
   };
 

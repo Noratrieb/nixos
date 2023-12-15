@@ -6,6 +6,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     nur.url = "github:nix-community/NUR";
 
@@ -26,7 +27,7 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        specialArgs = { inherit inputs; };
         modules = [
           ./nixos/configuration.nix
           inputs.minegrub-theme.nixosModules.default
