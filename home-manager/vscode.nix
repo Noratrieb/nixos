@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.vscode;
     enableUpdateCheck = false;
-    mutableExtensionsDir = true;
+    mutableExtensionsDir = false;
     userSettings = {
       # Note: In settings.json, `.` in a key is not equivalent to a nested object property.
       # Language-specific
