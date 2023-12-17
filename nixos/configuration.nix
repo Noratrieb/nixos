@@ -202,6 +202,7 @@ in
     os-prober
     git
     fish
+    unzip
     (steam.override {
       extraPkgs = pkgs: [ bumblebee glxinfo ];
     }).run
