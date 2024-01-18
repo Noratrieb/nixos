@@ -8,6 +8,7 @@ with pkgs; [
   cargo-expand
   cargo-nextest
   customPkgs.cargo-mommy
+  dig
   fzf
   gcc
   gdb
