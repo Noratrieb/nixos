@@ -206,7 +206,7 @@ in
     fish
     unzip
     (steam.override {
-      extraPkgs = pkgs: [ bumblebee glxinfo ];
+      extraPkgs = pkgs: [ glxinfo ];
     }).run
     # Wine for 32 and 64 bit applications
     wineWowPackages.stable
