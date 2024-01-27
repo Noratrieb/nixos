@@ -97,6 +97,11 @@ in
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
+  fileSystems."/mnt/nas" = {
+    device = "192.168.178.47:/volume1/homes";
+    fsType = "nfs";
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -194,7 +199,6 @@ in
     settings.PermitRootLogin = "no";
     settings.PasswordAuthentication = false;
   };
-
 
   environment.systemPackages = with pkgs; [
     vim
