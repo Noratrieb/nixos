@@ -62,6 +62,7 @@
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
+      tomoki1207.pdf
       usernamehw.errorlens
       vadimcn.vscode-lldb
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
