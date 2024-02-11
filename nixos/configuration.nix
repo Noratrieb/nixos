@@ -119,8 +119,10 @@ in
     };
 
     # Configure keymap in X11
-    layout = "ch";
-    xkbVariant = "";
+    xkb = {
+      layout = "ch";
+      variant = "";
+    };
 
     # ndivia drivers
     videoDrivers = [ "nvidia" ];
