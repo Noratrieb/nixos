@@ -35,7 +35,6 @@ in
     customPkgs.cargo-bisect-rustc
     discord
     jetbrains.idea-ultimate
-    linuxKernel.packages.linux_6_6.perf
     obs-studio
     obsidian
     prismlauncher
