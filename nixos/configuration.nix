@@ -202,6 +202,7 @@ in
     settings.PasswordAuthentication = false;
   };
 
+  environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -209,6 +210,7 @@ in
     firefox
     os-prober
     git
+    linuxKernel.packages.linux_6_6.perf
     fish
     unzip
     (steam.override {
