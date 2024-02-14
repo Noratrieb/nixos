@@ -210,7 +210,12 @@ in
     firefox
     os-prober
     git
-    linuxKernel.packages.linux_6_6.perf
+    (linuxKernel.packagesFor
+      (linuxKernel.kernels.linux_6_6.override {
+        stdenv = gcc12Stdenv;
+        buildPackages = pkgs.buildPackages // { stdenv = gcc12Stdenv; };
+      })
+    ).perf
     fish
     unzip
     (steam.override {
