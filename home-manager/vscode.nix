@@ -50,6 +50,7 @@
       esbenp.prettier-vscode
       github.vscode-github-actions
       jnoortheen.nix-ide
+      timonwong.shellcheck
       mads-hartmann.bash-ide-vscode
       ms-azuretools.vscode-docker
       ms-python.python
