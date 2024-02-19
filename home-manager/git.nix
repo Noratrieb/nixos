@@ -10,7 +10,6 @@
       s = "status";
       rc = "rebase --continue";
       ra = "rebase --abort";
-
       # complex renames
       # TODO: use git-revise
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
@@ -23,11 +22,13 @@
       enable = true;
     };
     extraConfig = {
+      # TODO: See https://jvns.ca/blog/2024/02/16/popular-git-config-options
       core.autocrlf = false;
       core.editor = "${lib.getExe pkgs.neovim}";
       pull.ff = "only";
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
+      merge.conflictstyle = "zdiff3";
     };
   };
 }
