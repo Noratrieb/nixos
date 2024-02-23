@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -58,8 +58,7 @@
       ms-vscode.cmake-tools
       ms-vscode.cpptools
       ms-vscode.hexeditor
-      # https://github.com/NixOS/nixpkgs/issues/273835
-      (import inputs.nixpkgs-stable { system = "x86_64-linux"; }).vscode-extensions.nvarner.typst-lsp
+      nvarner.typst-lsp
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
