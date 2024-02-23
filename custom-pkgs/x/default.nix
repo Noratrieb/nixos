@@ -7,7 +7,7 @@
   nativeBuildInputs = with pkgs; [ rustc ];
 
   buildPhase = ''
-    rustc -Copt-level=3 -Cembed-bitcode=false $src --out-dir $out/bin
+    PYTHON=${pkgs.python3} rustc -Copt-level=3 -Cembed-bitcode=false $src --out-dir $out/bin
   '';
 
   meta = with pkgs.lib; {

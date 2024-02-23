@@ -11,13 +11,13 @@
 //! We also don't use `pwsh` on Windows, because it is not installed by default;
 
 use std::{
-    env, io,
-    path::Path,
-    process::{self, Command, ExitStatus},
+    env,
+    process::{self, Command},
     os::unix::process::CommandExt,
 };
 
 fn main() {
+    println!("{}", env!("PYTHON"));
     match env::args().skip(1).next().as_deref() {
         Some("--wrapper-version") => {
             println!("0.1.0");
@@ -36,14 +36,10 @@ fn main() {
     for dir in current.ancestors() {
         let candidate = dir.join("x.py");
         if candidate.exists() {
-            let shell_script_candidate = dir.join("x");
-            let mut cmd: Command;
-            if shell_script_candidate.exists() {
-                cmd = Command::new(dir.join("x"));
-                cmd.args(env::args().skip(1)).current_dir(dir);
-            } else {
-                panic!("error: cry about it");
-            }
+            let mut cmd = Command::new(env!("PYTHON"));
+            cmd.arg(dir.join("x.py"));
+            cmd.args(env::args().skip(1)).current_dir(dir);
+
             let error = cmd.exec();
             eprintln!("Failed to invoke `{:?}`: {}", cmd, error);
         }
