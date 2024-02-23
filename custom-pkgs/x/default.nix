@@ -1,10 +1,14 @@
-pkgs: pkgs.rustPlatform.buildRustPackage {
-  pname = "x";
-  version = "1.0.1";
+{ pkgs ? import <nixpkgs> { } }: pkgs.stdenv.mkDerivation {
+  name = "x";
 
-  src = ./.;
+  src = ./x.rs;
+  dontUnpack = true;
 
-  cargoLock.lockFile = ./Cargo.lock;
+  nativeBuildInputs = with pkgs; [ rustc ];
+
+  buildPhase = ''
+    rustc -Copt-level=3 -Cembed-bitcode=false $src --out-dir $out/bin
+  '';
 
   meta = with pkgs.lib; {
     description = "Helper for rust-lang/rust x.py";
