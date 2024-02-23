@@ -1,13 +1,14 @@
 { pkgs, ... }:
 let
-  customPkgs = import ../custom-pkgs/default.nix pkgs;
+  crates = import ../custom-pkgs/crates pkgs;
 in
 with pkgs; [
   bacon
   bat
+  cargo-cross
   cargo-expand
+  cargo-mommy
   cargo-nextest
-  customPkgs.cargo-mommy
   dig
   fzf
   gcc
@@ -18,9 +19,12 @@ with pkgs; [
   htop
   hyperfine
   inferno
+  jq
   p7zip
   python3
   ripgrep
   rustup-toolchain-install-master
   samply
-]
+  tokei
+  uwuify
+] ++ crates

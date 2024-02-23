@@ -31,7 +31,6 @@ in
 
   home.packages = with pkgs; [
     audacity
-    customPkgs.cargo-mommy
     customPkgs.cargo-bisect-rustc
     discord
     jetbrains.idea-ultimate
@@ -53,7 +52,7 @@ in
       g = "git";
     };
     shellAliases = {
-      x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe customPkgs.cargo-mommy}";
+      x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe' pkgs.cargo-mommy "cargo-mommy"}";
     };
   };
 
