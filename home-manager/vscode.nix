@@ -49,6 +49,7 @@
       eamodio.gitlens
       esbenp.prettier-vscode
       github.vscode-github-actions
+      hashicorp.terraform
       jnoortheen.nix-ide
       timonwong.shellcheck
       mads-hartmann.bash-ide-vscode
