@@ -17,7 +17,6 @@ use std::{
 };
 
 fn main() {
-    println!("{}", env!("PYTHON"));
     match env::args().skip(1).next().as_deref() {
         Some("--wrapper-version") => {
             println!("0.1.0");
