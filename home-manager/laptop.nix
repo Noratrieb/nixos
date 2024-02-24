@@ -11,6 +11,7 @@
       #   });
       # })
       inputs.nur.overlay
+      inputs.jujutsu.overlay
     ];
     # Configure your nixpkgs instance
     config = {

@@ -3,6 +3,7 @@
 
 { lib
 , pkgs
+, inputs
 , ...
 }:
 let
@@ -38,7 +39,7 @@ in
     spotify
     # rustup from nix for rust :)
     rustup
-  ] ++ import ./common-packages.nix { inherit pkgs; };
+  ] ++ import ./common-packages.nix { inherit pkgs inputs; };
 
   programs.fish = {
     enable = true;

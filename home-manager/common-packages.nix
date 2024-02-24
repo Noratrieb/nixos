@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   customPkgs = import ../custom-pkgs pkgs;
   crates = import ../custom-pkgs/crates pkgs;
@@ -10,7 +10,7 @@ with pkgs; [
   cargo-expand
   cargo-mommy
   cargo-nextest
-  customPkgs.jujutsu
+  jujutsu
   dig
   fzf
   gcc
