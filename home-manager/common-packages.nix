@@ -10,7 +10,7 @@ with pkgs; [
   cargo-expand
   cargo-mommy
   cargo-nextest
-  jujutsu
+  inputs.jujutsu.packages.${pkgs.system}.jujutsu
   dig
   fzf
   gcc
