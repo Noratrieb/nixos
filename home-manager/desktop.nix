@@ -45,6 +45,7 @@ in
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      set PAGER # unset PAGER to make jj behave properly
     '';
     shellAbbrs = {
       flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
