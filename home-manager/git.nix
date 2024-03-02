@@ -7,7 +7,7 @@
 
     aliases = {
       # simple aliases
-      s = "status";
+      st = "status";
       rc = "rebase --continue";
       ra = "rebase --abort";
       # complex renames
