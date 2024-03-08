@@ -1,7 +1,11 @@
 { lib
 , pkgs
 , ...
-}: {
+}:
+let
+  customPkgs = import ../custom-pkgs/default.nix pkgs;
+in
+{
   programs.neovim.enable = true;
 
   home.file.".cargo/config.toml" = {
@@ -19,6 +23,20 @@
 
   programs.direnv = {
     enable = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+    shellAbbrs = {
+      flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
+      g = "git";
+    };
+    shellAliases = {
+      x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe' pkgs.cargo-mommy "cargo-mommy"}";
+    };
   };
 
   programs.home-manager.enable = true;
