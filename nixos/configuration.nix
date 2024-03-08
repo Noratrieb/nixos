@@ -86,7 +86,6 @@ in
     useOSProber = true;
     minegrub-theme = {
       enable = true;
-      # splash = ":3";
     };
   };
 

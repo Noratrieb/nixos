@@ -1,8 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ lib
-, pkgs
+{ pkgs
 , inputs
 , ...
 }:
@@ -40,21 +39,6 @@ in
     # rustup from nix for rust :)
     rustup
   ] ++ import ./common-packages.nix { inherit pkgs inputs; };
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-      set PAGER # unset PAGER to make jj behave properly
-    '';
-    shellAbbrs = {
-      flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
-      g = "git";
-    };
-    shellAliases = {
-      x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe' pkgs.cargo-mommy "cargo-mommy"}";
-    };
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
