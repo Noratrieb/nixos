@@ -262,7 +262,9 @@ in
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
+
     };
+    containers.cdi.dynamic.nvidia.enable = true;
   };
 
   hardware.enableAllFirmware = true;
