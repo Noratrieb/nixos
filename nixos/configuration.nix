@@ -147,6 +147,16 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+    # as soon as it starts swapping its SO over
+    freeSwapThreshold = 100;
+  };
+
+  # Shows notification for `net.nuetzlich.SystemNotifications.Notify` D-Bus messages
+  services.systembus-notify.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
