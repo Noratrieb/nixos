@@ -134,6 +134,8 @@ in
     #  scrollButton = 2;
     #};
   };
+  # https://github.com/NixOS/nixpkgs/issues/299944#issuecomment-2027246826
+  hardware.nvidia.modesetting.enable = true;
 
   hardware.opengl.enable = true;
 
