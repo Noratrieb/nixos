@@ -53,9 +53,9 @@
       jnoortheen.nix-ide
       timonwong.shellcheck
       mads-hartmann.bash-ide-vscode
+      mgt19937.typst-preview
       ms-azuretools.vscode-docker
-      # https://github.com/NixOS/nixpkgs/issues/298110
-      # ms-python.python
+      ms-python.python
       ms-vscode-remote.remote-ssh
       ms-vscode.cmake-tools
       ms-vscode.cpptools
