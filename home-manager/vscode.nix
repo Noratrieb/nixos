@@ -49,6 +49,7 @@
       eamodio.gitlens
       esbenp.prettier-vscode
       github.vscode-github-actions
+      golang.go
       hashicorp.terraform
       jnoortheen.nix-ide
       timonwong.shellcheck
