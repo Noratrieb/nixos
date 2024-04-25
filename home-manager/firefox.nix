@@ -10,6 +10,8 @@
           ublock-origin
           bitwarden
           tampermonkey
+          sidebery
+          darkreader
         ];
 
         bookmarks = [
