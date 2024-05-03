@@ -151,6 +151,7 @@ in
   hardware.fancontrol.enable = false;
   hardware.fancontrol.config = ''
   '';
+  services.flatpak.enable = true;
 
   console.keyMap = "sg";
 
