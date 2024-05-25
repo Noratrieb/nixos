@@ -24,7 +24,7 @@ in
 
   home = {
     username = "nora";
-    homeDirectory = "/home/nils";
+    homeDirectory = "/home/nora";
   };
 
   home.packages = with pkgs; [
