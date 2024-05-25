@@ -38,7 +38,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nils = import ./home-manager/desktop.nix;
+            home-manager.users.nora = import ./home-manager/desktop.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
