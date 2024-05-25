@@ -198,8 +198,8 @@ in
     users = {
       nora = {
         uid = 1000;
-	isNormalUser = true;
-        home = "/home/nils";
+        isNormalUser = true;
+        home = "/home/nora";
         openssh.authorizedKeys.keys = [
           # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0n1ikUG9rYqobh7WpAyXrqZqxQoQ2zNJrFPj12gTpP"
@@ -253,6 +253,7 @@ in
     man-pages-posix
     bpftrace
     tailscale
+    file
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
