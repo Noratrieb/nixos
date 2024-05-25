@@ -23,7 +23,7 @@ in
   ];
 
   home = {
-    username = "nils";
+    username = "nora";
     homeDirectory = "/home/nils";
   };
 

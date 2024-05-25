@@ -196,8 +196,10 @@ in
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users = {
     users = {
-      nils = {
-        isNormalUser = true;
+      nora = {
+        uid = 1000;
+	isNormalUser = true;
+        home = "/home/nils";
         openssh.authorizedKeys.keys = [
           # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0n1ikUG9rYqobh7WpAyXrqZqxQoQ2zNJrFPj12gTpP"
@@ -211,7 +213,7 @@ in
     };
     extraGroups = {
       vboxusers = {
-        members = [ "nils" ];
+        #members = [ "nils" ];
       };
     };
   };
