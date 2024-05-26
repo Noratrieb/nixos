@@ -30,6 +30,7 @@ in
   home.packages = with pkgs; [
     audacity
     customPkgs.cargo-bisect-rustc
+    customPkgs.run
     discord
     jetbrains.idea-ultimate
     obs-studio
