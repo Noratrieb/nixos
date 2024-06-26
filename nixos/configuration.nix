@@ -139,9 +139,8 @@ in
     modesetting.enable = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       vaapiVdpau
     ];
