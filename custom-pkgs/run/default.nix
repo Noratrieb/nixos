@@ -5,5 +5,6 @@
     exit 1
   fi
   shift
-  nix run nixpkgs#"$first" -- "$@"
+  export NIXPKGS_ALLOW_UNFREE=1
+  nix run --impure nixpkgs#"$first" -- "$@"
 ''
