@@ -11,10 +11,11 @@
       rc = "rebase --continue";
       ra = "rebase --abort";
       # complex renames
-      # TODO: use git-revise
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
       resq = "rebase --autosquash -i";
+      autosquash = "!${lib.getExe pkgs.git-revise} -i $(git merge-base HEAD origin/HEAD) --autosquash";
+      autosq = "autosquash";
       pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
       sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${lib.getExe' pkgs.fzf "fzf"})";
     };
