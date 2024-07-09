@@ -96,6 +96,8 @@ in
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   fileSystems."/mnt/nas" = {
     device = "192.168.178.47:/volume1/homes";
     fsType = "nfs";
