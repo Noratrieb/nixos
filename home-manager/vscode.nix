@@ -54,6 +54,7 @@
       jnoortheen.nix-ide
       timonwong.shellcheck
       mads-hartmann.bash-ide-vscode
+      mgt19937.typst-preview
       ms-azuretools.vscode-docker
       ms-python.python
       ms-vscode-remote.remote-ssh
