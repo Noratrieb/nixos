@@ -33,6 +33,7 @@ in
     '';
     shellAbbrs = {
       flamegraph = "perf script | inferno-collapse-perf | inferno-flamegraph > out.svg && firefox out.svg";
+      c = "cargo";
       g = "git";
     };
     shellAliases = {
