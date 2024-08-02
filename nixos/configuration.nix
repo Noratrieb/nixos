@@ -170,7 +170,6 @@ in
   services.systembus-notify.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -194,7 +193,6 @@ in
     useRoutingFeatures = "both";
   };
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users = {
     users = {
       nora = {
@@ -202,7 +200,6 @@ in
         isNormalUser = true;
         home = "/home/nora";
         openssh.authorizedKeys.keys = [
-          # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0n1ikUG9rYqobh7WpAyXrqZqxQoQ2zNJrFPj12gTpP"
         ];
         extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
@@ -214,7 +211,7 @@ in
     };
     extraGroups = {
       vboxusers = {
-        #members = [ "nils" ];
+        #members = [ "nora" ];
       };
     };
   };

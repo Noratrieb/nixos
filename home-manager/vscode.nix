@@ -103,12 +103,12 @@
         name = "riverdelta";
         version = "0.1.0";
         src = builtins.fetchGit {
-          url = "https://github.com/Nilstrieb/riverdelta";
+          url = "https://github.com/Noratrieb/riverdelta";
           rev = "64d81b56084d9a7663517b367b4533fb8ea83a92";
         };
-        vscodeExtPublisher = "Nilstrieb";
+        vscodeExtPublisher = "Noratrieb";
         vscodeExtName = "riverdelta";
-        vscodeExtUniqueId = "Nilstrieb.riverdelta";
+        vscodeExtUniqueId = "Noratrieb.riverdelta";
         buildPhase = ''
           runHook preBuild;
           cd ./vscode
