@@ -306,6 +306,8 @@ in
 
   networking.interfaces.enp39s0.wakeOnLan.enable = true;
 
+  system.nixos.distroName = "🏳️‍⚧️";
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
