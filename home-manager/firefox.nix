@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   programs.firefox = {
     enable = true;
+    # see configuration.nix
+    package = pkgs.firefox-beta;
     profiles = {
       nils = {
         id = 0;
