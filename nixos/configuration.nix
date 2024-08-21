@@ -227,8 +227,7 @@ in
     vim
     wget
     curl
-    # Use firefox-beta to get 130 which contains the fix for https://bugzilla.mozilla.org/show_bug.cgi?id=1898476
-    firefox-beta
+    firefox
     os-prober
     git
     (linuxKernel.packagesFor
