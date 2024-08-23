@@ -36,6 +36,7 @@ in
     audacity
     customPkgs.cargo-bisect-rustc
     customPkgs.run
+    customPkgs.unpem
     discord
     jetbrains.idea-ultimate
     obsidian
