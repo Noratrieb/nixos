@@ -89,6 +89,13 @@ in
     };
   };
 
+  # For hibernate:
+  # https://www.reddit.com/r/hyprland/comments/1cyb0h7/hibernate_on_nvidia/
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_PreserveVideoMemoryAllocations=1
+    options nvidia NVreg_TemporaryFilePath=/var/tmp 
+  '';
+
   boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   boot.kernel.sysctl = {
@@ -140,6 +147,8 @@ in
     # https://github.com/NixOS/nixpkgs/issues/299944#issuecomment-2027246826
     modesetting.enable = true;
     open = true;
+    # For suspend/hibernate
+    powerManagement.enable = true;
   };
 
   hardware.graphics = {
