@@ -96,6 +96,8 @@ in
     options nvidia NVreg_TemporaryFilePath=/var/tmp 
   '';
 
+  boot.binfmt.emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
+
   boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   boot.kernel.sysctl = {
