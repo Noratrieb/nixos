@@ -112,7 +112,7 @@ in
     fsType = "nfs";
   };
 
-  # Enable the X11 windowing system.
+  # Enable the X11/Wayland windowing system.
   services.xserver = {
     enable = true;
 
@@ -125,7 +125,7 @@ in
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
       '';
-      extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
     };
 
     # Configure keymap in X11
