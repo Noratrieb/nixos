@@ -168,8 +168,8 @@ in
 
   console.keyMap = "sg";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # do you even print bro? have you ever printed bro? don't cups me bro.
+  services.printing.enable = false;
 
   services.earlyoom = {
     enable = true;
