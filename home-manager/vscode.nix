@@ -26,7 +26,6 @@
           };
         };
       };
-      "prolog.executablePath" = lib.getExe pkgs.swiProlog;
       "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -85,12 +84,6 @@
         name = "caddyfile-support";
         version = "0.3.0";
         sha256 = "sha256-1yiOnvC2w33kiPRdQYskee38Cid/GOj9becLadP1fUY=";
-      }
-      {
-        publisher = "arthurwang";
-        name = "vsc-prolog";
-        version = "0.8.23";
-        sha256 = "sha256-Da2dCpruVqzP3g1hH0+TyvvEa1wEwGXgvcmIq9B/2cQ=";
       }
       {
         publisher = "evan-buss";
