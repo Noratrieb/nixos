@@ -138,6 +138,7 @@ in
     #  scrollButton = 2;
     #};
   };
+
   hardware.nvidia = {
     # https://github.com/NixOS/nixpkgs/issues/299944#issuecomment-2027246826
     modesetting.enable = true;
@@ -219,6 +220,14 @@ in
       };
     };
   };
+
+  xdg.mime.defaultApplications = {
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+  };
+  # This is apparently used by Electron? Maybe not anymore.
+  environment.sessionVariables.DEFAULT_BROWSER = lib.getExe pkgs.firefox;
 
   services.openssh = {
     enable = true;
