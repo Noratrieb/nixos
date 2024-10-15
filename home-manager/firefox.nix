@@ -4,7 +4,7 @@
     profiles = {
       nils = {
         id = 0;
-        name = "nils";
+        name = "nora";
 
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
