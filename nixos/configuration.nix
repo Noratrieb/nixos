@@ -208,6 +208,7 @@ in
         extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ];
         packages = with pkgs; [
           vscode
+          chromium
         ];
         shell = pkgs.fish;
       };
