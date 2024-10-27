@@ -2,7 +2,7 @@
   programs.firefox = {
     enable = true;
     profiles = {
-      nils = {
+      nora = {
         id = 0;
         name = "nora";
 
