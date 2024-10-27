@@ -96,6 +96,9 @@ in
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
+    # 100 seems to be a good value for SSDs https://chrisdown.name/2018/01/02/in-defence-of-swap.html,
+    # as anon and file pages are equally expensive so 100 balances them out.
+    "vm.swappiness" = 100;
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
@@ -166,8 +169,8 @@ in
   services.earlyoom = {
     enable = true;
     enableNotifications = true;
-    # as soon as it starts swapping its SO over
-    freeSwapThreshold = 100;
+    # as soon as it starts swapping its SO over (hm)
+    freeSwapThreshold = 90;
   };
 
   # Shows notification for `net.nuetzlich.SystemNotifications.Notify` D-Bus messages
