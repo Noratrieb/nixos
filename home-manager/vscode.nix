@@ -91,6 +91,13 @@
         version = "4.1.0";
         sha256 = "sha256-KkXUfA/W73kRfs1TpguXtZvBXFiSMXXzU9AYZGwpVsY=";
       }
+      {
+        publisher = "polymeilex";
+        name = "wgsl";
+        version = "0.1.17";
+        sha256 = "sha256-vGqvVrr3wNG6HOJxOnJEohdrzlBYspysTLQvWuP0QIw=";
+      }
+
     ] ++ [
       ((pkgs.vscode-utils.buildVscodeExtension {
         name = "riverdelta";
