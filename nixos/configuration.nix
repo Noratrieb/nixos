@@ -259,6 +259,8 @@ in
     vim
     wget
     curl
+    # for firefox-nightly
+    # inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
     firefox
     os-prober
     git
