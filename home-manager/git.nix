@@ -10,6 +10,7 @@
       st = "status";
       rc = "rebase --continue";
       ra = "rebase --abort";
+      amend = "commit --amend --no-edit";
       # complex renames
       hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
       fpush = "push --force-with-lease";
