@@ -17,6 +17,12 @@ in
     '';
   };
 
+  home.file.".config/gdb/gdbinit" = {
+    text = ''
+      set disassembly-flavor intel
+    '';
+  };
+
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
