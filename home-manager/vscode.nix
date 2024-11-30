@@ -100,7 +100,7 @@
 
     ] ++ [
       ((pkgs.vscode-utils.buildVscodeExtension {
-        name = "riverdelta";
+        pname = "riverdelta";
         version = "0.1.0";
         src = builtins.fetchGit {
           url = "https://github.com/Noratrieb/riverdelta";
