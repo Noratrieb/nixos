@@ -22,6 +22,11 @@ in
       set disassembly-flavor intel
     '';
   };
+  home.file.".config/gdb/gdbearlyinit" = {
+    text = ''
+      set startup-quietly on
+    '';
+  };
 
   programs.zoxide = {
     enable = true;
