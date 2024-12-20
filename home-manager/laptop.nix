@@ -10,8 +10,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.nur.overlay
-      inputs.jujutsu.overlay
+      inputs.nur.overlays.default
     ];
     # Configure your nixpkgs instance
     config = {

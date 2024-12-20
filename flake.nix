@@ -20,9 +20,6 @@
     # for firefox-nightly
     # firefox.url = "github:nix-community/flake-firefox-nightly";
     # firefox.inputs.nixpkgs.follows = "nixpkgs";
-
-    jujutsu.url = "github:martinvonz/jj";
-    jujutsu.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, nur, ... }@inputs: {

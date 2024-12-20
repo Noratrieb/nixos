@@ -24,7 +24,7 @@ in
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       # final: prev: {
       #  curl = prev.curl.override {
       #    # vquic is sad right now.
