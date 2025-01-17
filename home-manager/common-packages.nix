@@ -10,7 +10,6 @@ with pkgs; [
   cargo-expand
   cargo-mommy
   cargo-nextest
-  jujutsu
   dig
   fzf
   gcc
@@ -18,10 +17,12 @@ with pkgs; [
   gh
   git-absorb
   git-crypt
+  hollywood
   htop
   hyperfine
   inferno
   jq
+  jujutsu
   p7zip
   python3
   ripgrep
