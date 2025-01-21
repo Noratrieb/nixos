@@ -99,6 +99,15 @@ in
     # 100 seems to be a good value for SSDs https://chrisdown.name/2018/01/02/in-defence-of-swap.html,
     # as anon and file pages are equally expensive so 100 balances them out.
     "vm.swappiness" = 100;
+    # 340 is 0x154, which enables Rqs
+    # - n (denice RT tasks)
+    # - e (SIGTERM everyone but PID 1)
+    # - i (same but SIGKILL)
+    # - f (hallucinate OOM and kill one unlucky motherfucker)
+    # - s (Sync Em All 1989)
+    # - k (ghetto Ctrl+Alt+Del-to-log-in)
+    # - r (unraw)
+    "kernel.sysrq" = 340;
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
@@ -131,7 +140,8 @@ in
     };
 
     # ndivia drivers
-    videoDrivers = [ "nvidia" ];
+    # TODO: ENABLE NVIDIA DRIVERS AGAIN WHEN THEY STOP BEING BROKEN
+    #videoDrivers = [ "nvidia" ];
 
     # mouse settings
     # https://unix.stackexchange.com/questions/58900/how-to-scroll-the-screen-using-the-middle-click
@@ -322,7 +332,9 @@ in
 
     };
   };
-  hardware.nvidia-container-toolkit.enable = true;
+
+  # TODO: ENABLE NVIDIA DRIVERS WHEN THEY STOP BEING READY
+  #hardware.nvidia-container-toolkit.enable = true;
 
   hardware.enableAllFirmware = true;
 
@@ -350,5 +362,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "22.11";
 }
