@@ -229,7 +229,7 @@ in
     };
     extraGroups = {
       vboxusers = {
-        #members = [ "nora" ];
+        members = [ "nora" ];
       };
     };
   };
@@ -330,6 +330,9 @@ in
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
 
+    };
+    virtualbox.host = {
+      enable = true;
     };
   };
 
