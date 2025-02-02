@@ -141,7 +141,7 @@ in
 
     # ndivia drivers
     # TODO: ENABLE NVIDIA DRIVERS AGAIN WHEN THEY STOP BEING BROKEN
-    #videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" ];
 
     # mouse settings
     # https://unix.stackexchange.com/questions/58900/how-to-scroll-the-screen-using-the-middle-click
