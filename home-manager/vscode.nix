@@ -59,7 +59,7 @@
       ms-vscode.cmake-tools
       ms-vscode.cpptools
       ms-vscode.hexeditor
-      nvarner.typst-lsp
+      myriad-dreamin.tinymist
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
