@@ -140,7 +140,8 @@ in
     };
 
     # ndivia drivers
-    # TODO: ENABLE NVIDIA DRIVERS AGAIN WHEN THEY STOP BEING BROKEN
+    # long story short night light mode is currently broken with nvidia drivers. LMAO
+    # - https://forums.developer.nvidia.com/t/screen-freezes-at-random-intervals-with-rtx-4060-max-q-mobile-multiple-driver-versions-tested/295811/6?u=mirao
     videoDrivers = [ "nvidia" ];
 
     # mouse settings
