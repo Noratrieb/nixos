@@ -324,7 +324,6 @@ in
       qemu = {
         # enable TPM emulation
         swtpm.enable = true;
-        ovmf.packages = [ pkgs.IVMFFull.fd ];
       };
     };
     podman = {
