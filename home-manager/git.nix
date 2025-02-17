@@ -7,6 +7,7 @@
 
     aliases = {
       # simple aliases
+      c = "checkout";
       st = "status";
       rc = "rebase --continue";
       ra = "rebase --abort";
