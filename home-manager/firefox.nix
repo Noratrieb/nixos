@@ -6,7 +6,7 @@
         id = 0;
         name = "nora";
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           bitwarden
           tampermonkey
@@ -30,6 +30,10 @@
               {
                 name = "nixpkgs search";
                 url = "https://search.nixos.org/packages";
+              }
+              {
+                name = "Github Notifications";
+                url = "https://github.com/notifications";
               }
             ];
           }
