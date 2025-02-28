@@ -89,7 +89,10 @@ in
     };
   };
 
-  boot.binfmt.emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
+  boot.binfmt = {
+    emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
+    preferStaticEmulators = true; # required to work with podman (apparently)
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
 
@@ -331,7 +334,6 @@ in
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
-
     };
     virtualbox.host = {
       enable = true;
