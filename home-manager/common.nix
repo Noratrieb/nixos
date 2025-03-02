@@ -37,6 +37,15 @@ in
     enable = true;
   };
 
+  programs.eza = {
+    enable = true;
+    git = true;
+  };
+
+  programs.ripgrep.enable = true;
+
+  programs.fd.enable = true;
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -49,6 +58,14 @@ in
     };
     shellAliases = {
       x = "CARGO_MOMMYS_ACTUAL=${lib.getExe customPkgs.x} ${lib.getExe' pkgs.cargo-mommy "cargo-mommy"}";
+    };
+    functions = {
+      "scratch" = {
+        description = "Makes a temporary directory and moves into it";
+        body = ''
+          cd "$(mktemp --tmpdir -d scratchXXXXXXXXX)"
+        '';
+      };
     };
   };
 

@@ -25,7 +25,6 @@ with pkgs; [
   jujutsu
   p7zip
   python3
-  ripgrep
   rustup-toolchain-install-master
   samply
   tokei
