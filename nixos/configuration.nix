@@ -294,6 +294,7 @@ in
     virt-manager
     podman
     neofetch # for the grub theme
+    fastfetch
     podman-compose
     man-pages
     man-pages-posix
