@@ -98,7 +98,12 @@
           version = "0.1.17";
           sha256 = "sha256-vGqvVrr3wNG6HOJxOnJEohdrzlBYspysTLQvWuP0QIw=";
         }
-
+        {
+          publisher = "sunshaoce";
+          name = "risc-v";
+          version = "1.158.12";
+          sha256 = "sha256-+HLAkxU9hIhP8tn0jVI2L2HcYusmHSpoaG7dHA7WgxA=";
+        }
       ] ++ [
         ((pkgs.vscode-utils.buildVscodeExtension {
           pname = "riverdelta";
