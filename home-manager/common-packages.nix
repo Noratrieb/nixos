@@ -20,6 +20,7 @@ with pkgs; [
   hollywood
   htop
   hyperfine
+  llvmPackages_19.bintools-unwrapped
   inferno
   jq
   jujutsu
