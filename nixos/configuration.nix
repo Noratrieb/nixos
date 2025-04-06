@@ -15,6 +15,8 @@ in
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
+    inputs.niri.nixosModules.niri
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -25,6 +27,7 @@ in
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
       inputs.nur.overlays.default
+      inputs.niri.overlays.niri
       # final: prev: {
       #  curl = prev.curl.override {
       #    # vquic is sad right now.
@@ -169,6 +172,15 @@ in
     ];
   };
 
+  niri-flake.cache.enable = false;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
+  services.displayManager.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome pkgs.gnome-keyring ];
+  programs.waybar.enable = true;
+
   # TODO: Create a fancontrol config
   hardware.fancontrol.enable = false;
   hardware.fancontrol.config = ''
@@ -302,6 +314,9 @@ in
     tailscale
     file
     comma
+    alacritty
+    fuzzel
+    xwayland-satellite
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
