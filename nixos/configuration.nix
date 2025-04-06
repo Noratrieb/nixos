@@ -179,7 +179,6 @@ in
   };
   services.displayManager.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome pkgs.gnome-keyring ];
-  programs.waybar.enable = true;
 
   # TODO: Create a fancontrol config
   hardware.fancontrol.enable = false;
@@ -317,6 +316,7 @@ in
     alacritty
     fuzzel
     xwayland-satellite
+    font-awesome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
