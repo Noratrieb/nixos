@@ -3,6 +3,7 @@
 
 { pkgs
 , inputs
+, lib
 , ...
 }:
 let
@@ -20,6 +21,7 @@ in
     ./git.nix
     ./firefox.nix
     ./vscode.nix
+    ./waybar.nix
   ];
 
   home = {
@@ -30,6 +32,10 @@ in
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [ obs-pipewire-audio-capture ];
+  };
+
+  programs.niri = {
+    config = builtins.readFile ./config.kdl;
   };
 
   home.packages = with pkgs; [

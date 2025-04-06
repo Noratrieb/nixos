@@ -17,6 +17,8 @@
     minegrub-theme.url = "github:Lxtharia/minegrub-theme/b6f8a3a7e2fd22d72e2dbdaf563ad0bcb5c78e45";
     minegrub-theme.inputs.nixpkgs.follows = "nixpkgs";
 
+    niri.url = "github:sodiboo/niri-flake";
+
     # for firefox-nightly
     # firefox.url = "github:nix-community/flake-firefox-nightly";
     # firefox.inputs.nixpkgs.follows = "nixpkgs";
