@@ -20,6 +20,8 @@
       autosq = "autosquash";
       pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
       sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${lib.getExe' pkgs.fzf "fzf"})";
+      # lol
+      build = "!cargo build";
     };
     difftastic = {
       enable = true;

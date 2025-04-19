@@ -29,5 +29,6 @@ with pkgs; [
   rustup-toolchain-install-master
   samply
   tokei
+  customPkgs.u
   uwuify
 ] ++ crates
