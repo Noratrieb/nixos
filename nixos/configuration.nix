@@ -181,10 +181,8 @@ in
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome pkgs.gnome-keyring ];
   programs.waybar.enable = true;
 
-  # TODO: Create a fancontrol config
-  hardware.fancontrol.enable = false;
-  hardware.fancontrol.config = ''
-  '';
+  programs.coolercontrol.enable = true;
+  programs.coolercontrol.nvidiaSupport = true;
   services.flatpak.enable = true;
 
   console.keyMap = "sg";
