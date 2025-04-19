@@ -9,7 +9,7 @@ pkgs: pkgs.rustPlatform.buildRustPackage {
     hash = "sha256-rr0fU1Y5k2ScT8zpBz4VhMaUlbW/ze00ORz8dUNFIpI=";
   };
 
-  cargoHash = "sha256-9UijUaLcJwFxkkrd91K9r1vq2fNtsTQvc+ZWGaZQiNE=";
+  cargoHash = "sha256-4C63UsFlFAKaSXXwtO+u9yi3kvnLG8hKAnTQRKvwg2U=";
 
   patches =
     let
