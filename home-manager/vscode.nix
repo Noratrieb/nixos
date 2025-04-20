@@ -7,7 +7,7 @@
       enableUpdateCheck = false;
       keybindings = [
         {
-          key = "ctrl+[BracketRight]";
+          key = "ctrl+[BracketLeft]";
           command = "workbench.action.terminal.focus";
           when = "terminalProcessSupported";
         }
