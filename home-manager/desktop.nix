@@ -37,6 +37,7 @@ in
   programs.niri = {
     config = builtins.readFile ./config.kdl;
   };
+  services.gnome-keyring.enable = true;
 
   home.packages = with pkgs; [
     audacity
