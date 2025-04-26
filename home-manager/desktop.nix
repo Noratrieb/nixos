@@ -3,7 +3,6 @@
 
 { pkgs
 , inputs
-, lib
 , ...
 }:
 let
@@ -22,6 +21,7 @@ in
     ./firefox.nix
     ./vscode.nix
     ./waybar.nix
+    ./swaylock.nix
   ];
 
   home = {

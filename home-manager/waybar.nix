@@ -1,10 +1,12 @@
-{ config, ... }: {
+{ config, pkgs, lib, ... }:
+
+{
   home.file."${config.xdg.configHome}/waybar/config.jsonc" = {
     text =
       builtins.toJSON {
         height = 35;
         spacing = 4;
-        modules-left = [ ];
+        modules-left = [ "systemd-failed-units" ];
         modules-center = [
           "clock"
         ];
@@ -14,29 +16,40 @@
           "cpu"
           "memory"
           "tray"
+          "custom/power"
         ];
+
+        systemd-failed-units = {
+          hide-on-ok = true; # Hide if there are zero failed units.
+          format = "✗ {nr_failed}";
+          format-ok = "✓";
+          system = true; # Monitor failed systemwide units.
+          user = false; # Ignore failed user units.
+        };
         clock = {
-          format = "{:%a %F %H:%M}";
-          "tooltip-format" = "<tt><small>{calendar}</small></tt>";
-          "calendar" = {
-            "mode" = "year";
-            "mode-mon-col" = 3;
-            "weeks-pos" = "right";
-            "on-scroll" = 1;
-            "format" = {
-              "months" = "<span color='#ffead3'><b>{}</b></span>";
-              "days" = "<span color='#ecc6d9'><b>{}</b></span>";
-              "weeks" = "<span color='#99ffdd'><b>W{}</b></span>";
-              "weekdays" = "<span color='#ffcc66'><b>{}</b></span>";
-              "today" = "<span color='#ff6699'><b><u>{}</u></b></span>";
+          interval = 1;
+          format = "{:%a %F %H:%M:%S}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
             };
           };
-          "actions" = {
-            "on-click-right" = "mode";
-            "on-scroll-up" = "shift_up";
-            "on-scroll-down" = "shift_down";
+          actions = {
+            on-click-right = "mode";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
           };
         };
+
         pulseaudio = {
           # "scroll-step": 1, // %, can be a float
           "format" = "{volume}% {icon} {format_source}";
@@ -54,9 +67,8 @@
             "car" = "";
             "default" = [ "" "" "" ];
           };
-          "on-click" = "pavucontrol";
+          "on-click" = lib.getExe pkgs.pavucontrol;
         };
-
         cpu = {
           format = "{usage}% ";
           tooltip = false;
@@ -67,7 +79,63 @@
         tray = {
           spacing = 10;
         };
-
+        "custom/power" =
+          let
+            power-menu = pkgs.writeText "power_menu.xml" ''
+              <?xml version="1.0" encoding="UTF-8"?>
+              <interface>
+                <object class="GtkMenu" id="menu">
+                  <child>
+                    <object class="GtkMenuItem" id="lock">
+                      <property name="label">Lock 🔒</property>
+                    </object>
+                  </child>
+                  <child>
+                    <object class="GtkSeparatorMenuItem" id="delimiter1"/>
+                  </child>
+                  <child>
+                    <object class="GtkMenuItem" id="reboot">
+                      <property name="label">Reboot ♻️</property>
+                    </object>
+                  </child>
+                  <child>
+                    <object class="GtkMenuItem" id="poweroff">
+                      <property name="label">Poweroff 💤</property>
+                    </object>
+                  </child>
+                </object>
+              </interface>
+            '';
+          in
+          {
+            "format" = "⏻";
+            "tooltip" = false;
+            "menu" = "on-click";
+            "menu-file" = power-menu;
+            "menu-actions" = {
+              "lock" = "${lib.getExe pkgs.swaylock}";
+              "reboot" = "reboot";
+              "poweroff" = "poweroff";
+            };
+          };
       };
+  };
+  home.file."${config.xdg.configHome}/waybar/style.css" = {
+    text = ''
+      ${builtins.readFile ./default-waybar-style.css}
+
+      #custom-power {
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: rebeccapurple;
+      }
+
+
+      #systemd-failed-units {
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: red;
+      }
+    '';
   };
 }
