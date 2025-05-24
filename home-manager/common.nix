@@ -39,7 +39,6 @@ in
 
   programs.eza = {
     enable = true;
-    git = true;
   };
 
   programs.ripgrep.enable = true;
