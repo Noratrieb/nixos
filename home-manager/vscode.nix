@@ -15,7 +15,12 @@
       userSettings = {
         # Note: In settings.json, `.` in a key is not equivalent to a nested object property.
         # Language-specific
-        "rust-analyzer.server.path" = lib.getExe' pkgs.rustup "rust-analyzer";
+        "rust-analyzer.server.path" = lib.getExe (pkgs.writeShellApplication {
+          name = "rust-analyzer-nightly-wrapper";
+          text = ''
+            exec ${lib.getExe' pkgs.rustup "rust-analyzer"} +nightly
+          '';
+        });
         "[nix]"."editor.formatOnSave" = true;
         "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
         "nix.enableLanguageServer" = true;
