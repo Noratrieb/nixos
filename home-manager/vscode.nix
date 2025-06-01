@@ -17,8 +17,14 @@
         # Language-specific
         "rust-analyzer.server.path" = lib.getExe (pkgs.writeShellApplication {
           name = "rust-analyzer-nightly-wrapper";
+          # Ensure that we always use rust-analyzer from the nightly toolchain
+          # - in case a rust-toolchain.toml doens't have rust-analyzer
+          # - to ensure we get the latest fixes even if an older toolchain is used
+          # We can't do rust-analyzer +nightly, as that would inherit use of the nightly toolchain
+          # to all children of r-a, including cargo, which is very bad.
           text = ''
-            exec ${lib.getExe' pkgs.rustup "rust-analyzer"} +nightly
+            ra=$(${lib.getExe' pkgs.rustup "rustup"} +nightly which rust-analyzer)
+            exec "$ra"
           '';
         });
         "[nix]"."editor.formatOnSave" = true;
