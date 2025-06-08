@@ -149,11 +149,9 @@
     text = ''
       ${builtins.readFile ./default-waybar-style.css}
 
-      #custom-power {
-        padding-left: 15px;
-        padding-right: 15px;
-        font-size: 30px;
-        background-color: rebeccapurple;
+      window#waybar {
+        background: linear-gradient(to right,rgb(131, 80, 117) 15%, #e3afd5 30%, rgb(131, 80, 117) 45%, #db88c5);
+        color: black;
       }
 
       #systemd-failed-units {
@@ -162,11 +160,38 @@
         background-color: red;
       }
 
+      #mpris {
+        color: white;
+      }
+
+      #custom-music-back, #custom-music-next {
+        font-size: 20px;
+        color: white;
+      }
+
       #custom-music-back {
         padding: 0 10px 0 15px;
       }
       #custom-music-next {
         padding: 0 10px;
+      }
+
+      #clock {
+        background: unset;
+        color: white;
+      }
+
+      #privacy *, #pulseaudio, #cpu, #memory, #tray {
+        background-color: unset;
+        color: black;
+      }
+
+      #custom-power {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 30px;
+        background-color: rebeccapurple;
+        color: white;
       }
     '';
   };
