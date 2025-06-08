@@ -150,7 +150,13 @@
       ${builtins.readFile ./default-waybar-style.css}
 
       window#waybar {
-        background: linear-gradient(to right,rgb(131, 80, 117) 15%, #e3afd5 30%, rgb(131, 80, 117) 45%, #db88c5);
+        background: linear-gradient(
+          to right,
+          rgb(131, 80, 117) 15%,
+          rgb(158, 103, 143) 30%,
+          rgb(131, 80, 117) 45%,
+          #db88c5
+        );
         color: black;
       }
 
