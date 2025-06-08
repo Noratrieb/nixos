@@ -6,7 +6,13 @@
       builtins.toJSON {
         height = 35;
         spacing = 4;
-        modules-left = [ "systemd-failed-units" ];
+
+        modules-left = [
+          "systemd-failed-units"
+          "custom/music-back"
+          "mpris"
+          "custom/music-next"
+        ];
         modules-center = [
           "clock"
         ];
@@ -25,6 +31,25 @@
           format-ok = "✓";
           system = true; # Monitor failed systemwide units.
           user = false; # Ignore failed user units.
+        };
+        "custom/music-back" = {
+          format = "⏴";
+          tooltip = true;
+          tooltip-format = "Play previous song";
+          on-click = "${lib.getExe pkgs.playerctl} previous";
+        };
+        mpris = {
+          format = "{status_icon} {dynamic}";
+          dynamic-order = [ "title" "artist" ];
+          status-icons = {
+            paused = "⏸";
+          };
+        };
+        "custom/music-next" = {
+          format = "⏵";
+          tooltip = true;
+          tooltip-format = "Play next song";
+          on-click = "${lib.getExe pkgs.playerctl} next";
         };
         clock = {
           interval = 1;
@@ -127,14 +152,21 @@
       #custom-power {
         padding-left: 15px;
         padding-right: 15px;
+        font-size: 30px;
         background-color: rebeccapurple;
       }
-
 
       #systemd-failed-units {
         padding-left: 30px;
         padding-right: 30px;
         background-color: red;
+      }
+
+      #custom-music-back {
+        padding: 0 10px 0 15px;
+      }
+      #custom-music-next {
+        padding: 0 10px;
       }
     '';
   };

@@ -39,6 +39,8 @@ in
   };
   services.gnome-keyring.enable = true;
 
+  services.playerctld.enable = true;
+
   home.packages = with pkgs; [
     audacity
     customPkgs.cargo-bisect-rustc
