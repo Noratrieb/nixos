@@ -1,5 +1,5 @@
 { pkgs }: pkgs.mkShell {
-  buildInputs = with pkgs; [ openssl zlib libpq ];
+  buildInputs = with pkgs; [ openssl zlib libpq sqlite ];
   nativeBuildInputs = with pkgs; [
     pkg-config
     cmake
