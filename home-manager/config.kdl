@@ -553,7 +553,7 @@ binds {
 
     Print { screenshot show-pointer=false; }
     Ctrl+Print { screenshot-screen show-pointer=false; }
-    Alt+Print { screenshot-window show-pointer=false; }
+    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
