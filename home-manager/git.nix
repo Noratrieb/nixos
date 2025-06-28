@@ -9,6 +9,7 @@
       # simple aliases
       c = "checkout";
       st = "status";
+      p = "push";
       rc = "rebase --continue";
       ra = "rebase --abort";
       amend = "commit --amend --no-edit";
