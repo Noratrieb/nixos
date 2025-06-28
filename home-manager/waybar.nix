@@ -28,9 +28,9 @@
         systemd-failed-units = {
           hide-on-ok = true; # Hide if there are zero failed units.
           format = "✗ {nr_failed}";
-          format-ok = "✓";
-          system = true; # Monitor failed systemwide units.
-          user = false; # Ignore failed user units.
+          format-ok = "✓ systemd is ok but waybar is not";
+          system = true; # monitor sytem units
+          user = true; # monitor user units
         };
         "custom/music-back" = {
           format = "⏴";
