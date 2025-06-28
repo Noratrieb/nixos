@@ -17,6 +17,7 @@
           "clock"
         ];
         modules-right = [
+          "bluetooth"
           "privacy"
           "pulseaudio"
           "cpu"
@@ -75,6 +76,12 @@
           };
         };
 
+        bluetooth = {
+          format = " {status}";
+          format-disabled = ""; # an empty format will hide the module
+          format-connected = " {num_connections} connected";
+          on-click = lib.getExe pkgs.overskride;
+        };
         pulseaudio = {
           # "scroll-step": 1, // %, can be a float
           "format" = "{volume}% {icon} {format_source}";
