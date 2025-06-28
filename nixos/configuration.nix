@@ -382,8 +382,6 @@ in
 
   hardware.enableAllFirmware = true;
 
-  hardware.openrazer.enable = true;
-
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
