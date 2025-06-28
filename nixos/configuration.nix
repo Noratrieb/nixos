@@ -179,6 +179,9 @@ in
   };
   services.displayManager.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-gnome pkgs.gnome-keyring ];
+  services.gnome = {
+    gcr-ssh-agent.enable = true;
+  };
   programs.waybar.enable = true;
 
   programs.coolercontrol.enable = true;

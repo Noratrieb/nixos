@@ -251,10 +251,8 @@ environment {
     DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     // see keyring below
-    SSH_AUTH_SOCK "/run/user/1000/keyring/ssh" 
+    // SSH_AUTH_SOCK "/run/user/1000/keyring/ssh" 
 }
-
-spawn-at-startup "sh" "-c" "gnome-keyring-daemon -s --components=pkcs11,secrets,ssh -f"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

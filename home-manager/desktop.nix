@@ -37,7 +37,6 @@ in
   programs.niri = {
     config = builtins.readFile ./config.kdl;
   };
-  services.gnome-keyring.enable = true;
 
   services.playerctld.enable = true;
 
