@@ -251,6 +251,26 @@ in
     };
   };
 
+  systemd.user = {
+    services.regenerate-bsod-lockscreen = {
+      description = "Regenerate the lock screen image";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = lib.getExe (import ./bsod { inherit pkgs lib; });
+      };
+    };
+    timers.regenerate-bsod-lockscreen = {
+      description = "Regenerate the lock screen image";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        Unit = "regenerate-bsod-lockscreen.service";
+        OnBootSec = "10s";
+        OnUnitActiveSec = "60s";
+        AccuracySec = "1s";
+      };
+    };
+  };
+
   systemd.services.paperless-ngx-backup = {
     description = "paperless-ngx data backup to NAS";
     serviceConfig = {
@@ -272,6 +292,7 @@ in
       Persistent = true; # ensure it still runs if the computer was down at the timer of trigger
     };
   };
+
 
   xdg.mime.defaultApplications = {
     "text/html" = "firefox.desktop";
