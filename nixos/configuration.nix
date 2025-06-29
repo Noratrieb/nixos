@@ -266,7 +266,7 @@ in
         Unit = "regenerate-bsod-lockscreen.service";
         OnBootSec = "10s";
         OnUnitActiveSec = "60s";
-        AccuracySec = "1s";
+        AccuracySec = "5s";
       };
     };
   };

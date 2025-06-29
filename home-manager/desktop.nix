@@ -52,6 +52,13 @@ in
     spotify
     # rustup from nix for rust :)
     rustup
+    (pkgs.writeShellApplication {
+      name = "lock-and-power-off-screen";
+      text = ''
+        niri msg action power-off-monitors
+        exec swaylock
+      '';
+    })
   ] ++ import ./common-packages.nix { inherit pkgs inputs; };
 
   # Nicely reload system units when changing configs
