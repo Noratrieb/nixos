@@ -222,6 +222,8 @@ in
 
   fonts.packages = with pkgs; [ fira-code customPkgs.monaspace ];
 
+  services.nixseparatedebuginfod.enable = true;
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
