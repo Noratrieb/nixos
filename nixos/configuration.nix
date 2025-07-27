@@ -123,14 +123,10 @@ in
     fsType = "nfs";
   };
 
-  # Enable the X11/Wayland windowing system.
-  services.xserver = {
-    enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.wallpaper.mode = "fill";
-    desktopManager.gnome = {
+  # Enable the Wayland windowing system.
+  services.displayManager.gdm.enable = true;
+  services.desktopManager = {
+    gnome = {
       enable = true;
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
@@ -138,6 +134,10 @@ in
       '';
       extraGSettingsOverridePackages = [ pkgs.mutter ];
     };
+  };
+  services.xserver = {
+    enable = true;
+    desktopManager.wallpaper.mode = "fill";
 
     # Configure keymap in X11
     xkb = {
