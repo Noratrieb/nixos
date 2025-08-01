@@ -8,4 +8,6 @@
   };
 
   boot.loader.systemd-boot.enable = true;
+
+  syste.stateVersion = "25.11";
 }
