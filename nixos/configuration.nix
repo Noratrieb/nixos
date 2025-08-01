@@ -12,17 +12,10 @@ in
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     inputs.niri.nixosModules.niri
-
-    # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -35,14 +28,9 @@ in
       #  };
       # )
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
       nvidia.acceptLicense = true;
-      permittedInsecurePackages = [
-        "electron-25.9.0" # Temporary fix until the next obsidian release: https://github.com/NixOS/nixpkgs/issues/273611
-      ];
     };
   };
 
@@ -63,18 +51,9 @@ in
     };
   };
 
-  networking = {
-    hostName = "nixos";
-    networkmanager.enable = true;
-    extraHosts =
-      ''
-        192.168.122.44 illumos-vm
-      '';
-  };
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Zurich";
-  # Windows sets the hardware clock in local time by default.
-  time.hardwareClockInLocalTime = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -82,15 +61,6 @@ in
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    useOSProber = true;
-    minegrub-theme = {
-      enable = true;
-    };
-  };
 
   boot.binfmt = {
     emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
@@ -116,13 +86,6 @@ in
     "kernel.sysrq" = 340;
   };
 
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  fileSystems."/mnt/nas" = {
-    device = "192.168.178.47:/volume1/homes";
-    fsType = "nfs";
-  };
-
   # Enable the Wayland windowing system.
   services.displayManager.gdm.enable = true;
   services.desktopManager = {
@@ -145,11 +108,6 @@ in
       variant = "";
     };
 
-    # ndivia drivers
-    # long story short night light mode is currently broken with nvidia drivers. LMAO
-    # - https://forums.developer.nvidia.com/t/screen-freezes-at-random-intervals-with-rtx-4060-max-q-mobile-multiple-driver-versions-tested/295811/6?u=mirao
-    videoDrivers = [ "nvidia" ];
-
     # mouse settings
     # https://unix.stackexchange.com/questions/58900/how-to-scroll-the-screen-using-the-middle-click
     #libinput.mouse = {
@@ -157,12 +115,6 @@ in
     #  # 2=middle mouse button
     #  scrollButton = 2;
     #};
-  };
-
-  hardware.nvidia = {
-    # https://github.com/NixOS/nixpkgs/issues/299944#issuecomment-2027246826
-    modesetting.enable = true;
-    open = true;
   };
 
   hardware.graphics = {
@@ -185,7 +137,6 @@ in
   programs.waybar.enable = true;
 
   programs.coolercontrol.enable = true;
-  programs.coolercontrol.nvidiaSupport = true;
   services.flatpak.enable = true;
 
   console.keyMap = "sg";
@@ -223,11 +174,6 @@ in
   fonts.packages = with pkgs; [ fira-code customPkgs.monaspace ];
 
   services.nixseparatedebuginfod.enable = true;
-
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "both";
-  };
 
   users = {
     users = {
@@ -273,29 +219,6 @@ in
     };
   };
 
-  systemd.services.paperless-ngx-backup = {
-    description = "paperless-ngx data backup to NAS";
-    serviceConfig = {
-      Type = "oneshot";
-      User = "nora";
-      ExecStart = ''
-        ${lib.getExe pkgs.rsync} -a -v --delete --exclude=redis /home/nora/.local/share/paperless-ngx/ /mnt/nas/HEY/_Nora/paperless/backup
-      '';
-    };
-  };
-  systemd.timers.paperless-ngx-backup = {
-    description = "paperless-ngx data backup to NAS";
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      Unit = "paperless-ngx-backup.service";
-      OnCalendar = "daily UTC";
-      RandomizedDelaySec = 1800;
-      FixedRandomDelay = true;
-      Persistent = true; # ensure it still runs if the computer was down at the timer of trigger
-    };
-  };
-
-
   xdg.mime.defaultApplications = {
     "text/html" = "firefox.desktop";
     "x-scheme-handler/http" = "firefox.desktop";
@@ -303,28 +226,6 @@ in
   };
   # This is apparently used by Electron? Maybe not anymore.
   environment.sessionVariables.DEFAULT_BROWSER = lib.getExe pkgs.firefox;
-
-  services.openssh = {
-    enable = true;
-    hostKeys = [
-      {
-        path = "/etc/ssh/ssh_host_ed25519_key";
-        type = "ed25519";
-      }
-      {
-        # P256
-        path = "/etc/ssh/ssh_host_ecdsa_key";
-        type = "ecdsa";
-      }
-      {
-        bits = 4096;
-        path = "/etc/ssh/ssh_host_rsa_key";
-        type = "rsa";
-      }
-    ];
-    settings.PermitRootLogin = "no";
-    settings.PasswordAuthentication = false;
-  };
 
   environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
@@ -334,10 +235,9 @@ in
     # for firefox-nightly
     # inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
     firefox
-    os-prober
     git
     (linuxKernel.packagesFor
-      (linuxKernel.kernels.linux_6_6.override {
+      (linuxKernel.kernels.linux_latest.override {
         stdenv = gcc12Stdenv;
         buildPackages = pkgs.buildPackages // { stdenv = gcc12Stdenv; };
       })
@@ -357,7 +257,6 @@ in
     man-pages
     man-pages-posix
     bpftrace
-    tailscale
     file
     comma
     alacritty
@@ -411,24 +310,7 @@ in
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ /*SSH*/ 22 ];
-
-    # https://github.com/tailscale/tailscale/issues/4432#issuecomment-1112819111
-    checkReversePath = "loose";
   };
 
-  networking.interfaces.enp39s0.wakeOnLan.enable = true;
-
   system.nixos.distroName = "🏳️‍⚧️";
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "22.11";
 }

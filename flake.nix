@@ -32,7 +32,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/desktop.nix
           inputs.minegrub-theme.nixosModules.default
           home-manager.nixosModules.home-manager
           {
@@ -41,6 +41,20 @@
             home-manager.users.nora = import ./home-manager/desktop.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
+        ];
+      };
+      scrap = {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./nixos/laptop.nix
+          /*home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nora = import ./home-manager/desktop.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }*/
         ];
       };
     };
