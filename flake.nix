@@ -52,7 +52,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nora = import ./home-manager/home.nix;
+            home-manager.users.nora = import ./home-manager/laptop.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
