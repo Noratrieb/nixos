@@ -26,6 +26,9 @@
     };
   };
 
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/mnt/nas" = {
