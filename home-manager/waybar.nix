@@ -27,7 +27,7 @@
             "memory"
             "tray"
           ] ++
-          (if (config.networking.hostName == "scrap") then
+          (if (config.is-laptop) then
             [ "network" "power-profiles-daemon" "battery" ]
           else [ ]) ++
           [
