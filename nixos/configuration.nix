@@ -235,12 +235,7 @@ in
     # inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
     firefox
     git
-    (linuxKernel.packagesFor
-      (linuxKernel.kernels.linux_latest.override {
-        stdenv = gcc12Stdenv;
-        buildPackages = pkgs.buildPackages // { stdenv = gcc12Stdenv; };
-      })
-    ).perf
+    (linuxKernel.packagesFor linuxKernel.kernels.linux_latest).perf
     fish
     unzip
     (steam.override {
