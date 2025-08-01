@@ -23,6 +23,9 @@
           "cpu"
           "memory"
           "tray"
+        ] ++
+        (if (config.networking.hostName == "scrap") then [ "battery" ] else [ ]) ++
+        [
           "custom/power"
         ];
 
