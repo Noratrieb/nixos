@@ -97,7 +97,7 @@ in
     preferStaticEmulators = true; # required to work with podman (apparently)
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
