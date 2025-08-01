@@ -119,6 +119,41 @@
           tray = {
             spacing = 10;
           };
+          "network" = {
+            # "interface": "wlp2*", // (Optional) To force the use of this interface
+            "format-wifi" = " ({signalStrength}%)";
+            "format-ethernet" = "{ipaddr}/{cidr} ";
+            "tooltip-format" = "{ifname} via {gwaddr}  ({ipaddr}/{cidr})";
+            "format-linked" = "{ifname} (No IP) ";
+            "format-disconnected" = "Disconnected ⚠";
+            "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+          };
+          "power-profiles-daemon" = {
+            "format" = "{icon}";
+            "tooltip-format" = "Power profile: {profile}\nDriver: {driver}";
+            "tooltip" = true;
+            "format-icons" = {
+              "default" = "";
+              "performance" = "";
+              "balanced" = "";
+              "power-saver" = "";
+            };
+          };
+          "battery" = {
+            "states" = {
+              # "good": 95,
+              "warning" = 30;
+              "critical" = 5;
+            };
+            "format" = "{capacity}% {icon}";
+            "format-full" = "{capacity}% {icon}";
+            "format-charging" = "{capacity}% ";
+            "format-plugged" = "{capacity}% ";
+            "format-alt" = "{time} {icon}";
+            # "format-good": "", // An empty format will hide the module
+            # "format-full": "",
+            "format-icons" = [ "" "" "" "" "" ];
+          };
           "custom/power" =
             let
               power-menu = pkgs.writeText "power_menu.xml" ''
@@ -202,7 +237,7 @@
           color: white;
         }
 
-        #privacy *, #pulseaudio, #cpu, #memory, #tray {
+        #privacy *, #pulseaudio, #cpu, #memory, #tray, #network, #power-profiles-daemon, #battery {
           background-color: unset;
           color: black;
         }
