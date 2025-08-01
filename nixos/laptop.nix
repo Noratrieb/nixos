@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./laptop-hardware-configuration.nix
     ./configuration.nix
   ];
 
@@ -8,6 +9,7 @@
   };
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  syste.stateVersion = "25.11";
+  system.stateVersion = "25.11";
 }
