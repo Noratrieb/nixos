@@ -136,7 +136,6 @@ in
   };
   programs.waybar.enable = true;
 
-  programs.coolercontrol.enable = true;
   services.flatpak.enable = true;
 
   console.keyMap = "sg";
@@ -301,9 +300,6 @@ in
       enable = true;
     };
   };
-
-  # TODO: ENABLE NVIDIA DRIVERS WHEN THEY STOP BEING READY
-  #hardware.nvidia-container-toolkit.enable = true;
 
   hardware.enableAllFirmware = true;
 

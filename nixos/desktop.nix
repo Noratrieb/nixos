@@ -46,6 +46,7 @@
     open = true;
   };
 
+  programs.coolercontrol.enable = true;
   programs.coolercontrol.nvidiaSupport = true;
 
   services.tailscale = {
@@ -88,6 +89,9 @@
     # https://github.com/tailscale/tailscale/issues/4432#issuecomment-1112819111
     checkReversePath = "loose";
   };
+
+  # TODO: ENABLE NVIDIA DRIVERS WHEN THEY STOP BEING READY
+  #hardware.nvidia-container-toolkit.enable = true;
 
   networking.interfaces.enp39s0.wakeOnLan.enable = true;
 
