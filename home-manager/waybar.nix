@@ -188,7 +188,7 @@
               "menu" = "on-click";
               "menu-file" = power-menu;
               "menu-actions" = {
-                "lock" = "${lib.getExe pkgs.swaylock}";
+                "lock" = "lock-and-power-off-screen";
                 "reboot" = "reboot";
                 "poweroff" = "poweroff";
               };
