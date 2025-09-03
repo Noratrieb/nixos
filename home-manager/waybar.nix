@@ -88,7 +88,7 @@
             format = " {status}";
             format-disabled = ""; # an empty format will hide the module
             format-connected = " {num_connections} connected";
-            on-click = lib.getExe pkgs.overskride;
+            on-click = lib.getExe pkgs.blueberry;
           };
           pulseaudio = {
             # "scroll-step": 1, // %, can be a float
