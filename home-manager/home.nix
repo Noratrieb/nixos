@@ -50,8 +50,8 @@ in
     obsidian
     prismlauncher
     spotify
-    # rustup from nix for rust :)
-    rustup
+    rustup # rustup from nix for rust :)
+    gamescope # so i can put it in steam startup command lines
     (pkgs.writeShellApplication {
       name = "lock-and-power-off-screen";
       text = ''

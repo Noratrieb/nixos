@@ -82,6 +82,7 @@
   environment.systemPackages = with pkgs; [
     tailscale
     os-prober
+    usbutils # steam client logs complain about lsusb
   ];
 
   networking.firewall = {

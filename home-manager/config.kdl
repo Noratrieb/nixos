@@ -98,7 +98,7 @@ input {
 }
 
 output "Samsung Electric Company LC27G7xT H1AK500000" {
-    variable-refresh-rate
+    // variable-refresh-rate
 }
 
 // Settings that influence how windows are positioned and sized.
