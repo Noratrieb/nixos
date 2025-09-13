@@ -207,6 +207,7 @@
             rgb(131, 80, 117) 45%,
             #db88c5
           );
+          border-bottom: none;
           color: black;
         }
 
