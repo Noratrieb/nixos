@@ -540,16 +540,27 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    // requires the numpad but at least makes it possible at all
+    Mod+KP_Subtract { set-column-width "-10%"; }
+    Mod+KP_Add { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    // requires the numpad but at least makes it possible at all
+    Mod+Shift+KP_Subtract { set-window-height "-10%"; }
+    Mod+Shift+KP_Add { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // move around floating windows, sadly not available via binds directly.
+    Mod+Alt+Up { spawn "niri" "msg" "action" "move-floating-window" "-y" "-50"; }
+    Mod+Alt+Down { spawn "niri" "msg" "action" "move-floating-window" "-y" "+50"; }
+    Mod+Alt+Right { spawn "niri" "msg" "action" "move-floating-window" "-x" "+50"; }
+    Mod+Alt+Left { spawn "niri" "msg" "action" "move-floating-window" "-x" "-50"; }
+
+    Mod+S { set-dynamic-cast-window; }
+    Mod+Shift+S { set-dynamic-cast-monitor; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,

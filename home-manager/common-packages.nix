@@ -30,5 +30,6 @@ with pkgs; [
   samply
   tokei
   customPkgs.u
+  customPkgs.sl
   uwuify
 ] ++ crates
