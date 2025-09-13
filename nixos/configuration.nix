@@ -255,6 +255,7 @@ in
     fuzzel
     xwayland-satellite
     font-awesome
+    mpv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
