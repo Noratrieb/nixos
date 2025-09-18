@@ -13,6 +13,7 @@ in
     # inputs.hardware.nixosModules.common-ssd
 
     inputs.niri.nixosModules.niri
+    inputs.clippyboard.nixosModules.default
   ];
 
   nixpkgs = {
@@ -133,6 +134,8 @@ in
     gcr-ssh-agent.enable = true;
   };
   programs.waybar.enable = true;
+
+  services.clippyboard.enable = true;
 
   services.flatpak.enable = true;
 

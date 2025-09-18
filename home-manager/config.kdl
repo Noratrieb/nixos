@@ -334,6 +334,11 @@ window-rule {
     open-on-output "Lenovo Group Limited LEN G25-10 U4B30R14"  
 }
 
+window-rule {
+    match app-id="clippyboard"
+    open-floating true
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -550,8 +555,8 @@ binds {
     Mod+Shift+KP_Add { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+P       { toggle-window-floating; }
+    Mod+Shift+P { switch-focus-between-floating-and-tiling; }
 
     // move around floating windows, sadly not available via binds directly.
     Mod+Alt+Up { spawn "niri" "msg" "action" "move-floating-window" "-y" "-50"; }
@@ -593,7 +598,6 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
-    // Powers off the monitors. To turn them back on, do any input like
-    // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Paste from clippyboard
+    Mod+V { spawn "clippyboard-select"; }
 }

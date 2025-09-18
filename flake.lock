@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "clippyboard": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758224382,
+        "narHash": "sha256-EQwtymWm+QLeRH35kPZdvGBwyuNsK7zvshg91O/FS7U=",
+        "owner": "Noratrieb",
+        "repo": "clippyboard",
+        "rev": "660afa0bc8f932c9cb13da5b4e1f3e1524c27085",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Noratrieb",
+        "repo": "clippyboard",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -219,6 +239,7 @@
     },
     "root": {
       "inputs": {
+        "clippyboard": "clippyboard",
         "home-manager": "home-manager",
         "minegrub-theme": "minegrub-theme",
         "niri": "niri",
