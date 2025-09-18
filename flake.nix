@@ -19,6 +19,9 @@
 
     niri.url = "github:sodiboo/niri-flake";
 
+    clippyboard.url = "github:Noratrieb/clippyboard";
+    clippyboard.inputs.nixpkgs.follows = "nixpkgs";
+
     # for firefox-nightly
     # firefox.url = "github:nix-community/flake-firefox-nightly";
     # firefox.inputs.nixpkgs.follows = "nixpkgs";
