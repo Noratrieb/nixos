@@ -62,7 +62,7 @@ in
   # boot.loader.systemd-boot.enable = true;
 
   boot.binfmt = {
-    emulatedSystems = [ "wasm32-wasi" "aarch64-linux" ];
+    emulatedSystems = [ /*"wasm32-wasi"*/ "aarch64-linux" ]; # https://github.com/NixOS/nixpkgs/issues/444423
     preferStaticEmulators = true; # required to work with podman (apparently)
   };
 
