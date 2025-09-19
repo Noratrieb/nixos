@@ -600,4 +600,5 @@ binds {
 
     // Paste from clippyboard
     Mod+V { spawn "clippyboard-select"; }
+    Mod+Shift+V { spawn "clippyboard-clear"; }
 }

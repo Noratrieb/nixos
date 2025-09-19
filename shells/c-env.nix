@@ -4,8 +4,8 @@
     pkg-config
     cmake
     ninja
-    llvmPackages_19.clang
-    llvmPackages_19.lld
-    llvmPackages_19.bintools-unwrapped
+    llvmPackages_21.clang
+    llvmPackages_21.lld
+    llvmPackages_21.bintools-unwrapped
   ];
 }
