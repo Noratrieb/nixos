@@ -20,6 +20,7 @@ with pkgs; [
   hollywood
   htop
   hyperfine
+  killall
   llvmPackages_21.bintools-unwrapped
   inferno
   jq
