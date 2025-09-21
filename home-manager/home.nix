@@ -22,6 +22,7 @@ in
     ./vscode.nix
     ./waybar.nix
     ./swaylock.nix
+    ./swaync.nix
   ];
 
   home = {
