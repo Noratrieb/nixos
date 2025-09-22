@@ -114,6 +114,7 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true; # for games stores??
     extraPackages = with pkgs; [
       vaapiVdpau
     ];
@@ -244,6 +245,7 @@
     }).run
     # Wine for 32 and 64 bit applications
     wineWowPackages.stable
+    lutris
     virt-manager
     podman
     neofetch # for the grub theme
