@@ -1,11 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, ... }:
-let
-  customPkgs = import ../custom-pkgs/default.nix pkgs;
-in
-{
+{ inputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -171,7 +167,11 @@ in
     #media-session.enable = true;
   };
 
-  fonts.packages = with pkgs; [ fira-code customPkgs.monaspace ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ fira-code monaspace font-awesome ];
+  };
+
 
   services.nixseparatedebuginfod.enable = true;
 
@@ -236,7 +236,7 @@ in
     # inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
     firefox
     git
-    (linuxKernel.packagesFor linuxKernel.kernels.linux_latest).perf
+    perf
     fish
     unzip
     (steam.override {
@@ -257,7 +257,6 @@ in
     alacritty
     fuzzel
     xwayland-satellite
-    font-awesome
     mpv
   ];
 
