@@ -1,6 +1,5 @@
 pkgs: {
   cargo-bisect-rustc = import ./cargo-bisect-rustc/default.nix pkgs;
-  monaspace = import ./monaspace.nix pkgs;
   sl = import ./sl { inherit pkgs; };
   run = import ./run { inherit pkgs; };
   unpem = import ./unpem { inherit pkgs; };
