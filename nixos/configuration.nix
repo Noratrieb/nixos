@@ -136,6 +136,11 @@
 
   services.flatpak.enable = true;
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   console.keyMap = "sg";
 
   # do you even print bro? have you ever printed bro? don't cups me bro.
