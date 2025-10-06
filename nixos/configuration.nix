@@ -265,6 +265,7 @@
     fuzzel
     xwayland-satellite
     mpv
+    wl-mirror
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
