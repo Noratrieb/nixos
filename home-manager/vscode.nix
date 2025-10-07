@@ -54,6 +54,7 @@
         "editor.fontLigatures" = true;
         "terminal.integrated.scrollback" = 5000;
         "editor.stickyScroll.enabled" = false;
+        "chat.agent.enabled" = false;
       };
       extensions = with pkgs.vscode-extensions; [
         bmalehorn.vscode-fish
