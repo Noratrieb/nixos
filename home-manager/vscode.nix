@@ -53,7 +53,7 @@
         # "editor.fontFamily" = "'Monaspace Neon Var', Arial";
         "editor.fontLigatures" = true;
         "terminal.integrated.scrollback" = 5000;
-        "editor.stickyScroll.enabled" = false;
+        "terminal.integrated.stickyScroll.enabled" = false;
         "chat.agent.enabled" = false;
       };
       extensions = with pkgs.vscode-extensions; [
