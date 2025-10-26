@@ -2,32 +2,32 @@
   programs.git = {
     enable = true;
 
-    userEmail = "48135649+Noratrieb@users.noreply.github.com";
-    userName = "Noratrieb";
+    settings = {
+      user = {
+        name = "Noratrieb";
+        email = "48135649+Noratrieb@users.noreply.github.com";
+      };
 
-    aliases = {
-      # simple aliases
-      c = "checkout";
-      st = "status";
-      p = "push";
-      rc = "rebase --continue";
-      ra = "rebase --abort";
-      amend = "commit --amend --no-edit";
-      # complex renames
-      hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
-      fpush = "push --force-with-lease";
-      resq = "rebase --autosquash -i";
-      autosquash = "!${lib.getExe pkgs.git-revise} -i $(git merge-base HEAD origin/HEAD) --autosquash";
-      autosq = "autosquash";
-      pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
-      sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${lib.getExe' pkgs.fzf "fzf"})";
-      # lol
-      build = "!cargo build";
-    };
-    difftastic = {
-      enable = true;
-    };
-    extraConfig = {
+      alias = {
+        # simple aliases
+        c = "checkout";
+        st = "status";
+        p = "push";
+        rc = "rebase --continue";
+        ra = "rebase --abort";
+        amend = "commit --amend --no-edit";
+        # complex renames
+        hardupdate = "!git fetch && git reset --hard \"origin/$(git rev-parse --abbrev-ref HEAD)\"";
+        fpush = "push --force-with-lease";
+        resq = "rebase --autosquash -i";
+        autosquash = "!${lib.getExe pkgs.git-revise} -i $(git merge-base HEAD origin/HEAD) --autosquash";
+        autosq = "autosquash";
+        pfush = "!echo \"hör uf ume z'pfusche und machs richtig\"";
+        sw = "!git checkout $(git branch --format \"%(refname:lstrip=2)\" | ${lib.getExe' pkgs.fzf "fzf"})";
+        # lol
+        build = "!cargo build";
+      };
+
       # TODO: See https://jvns.ca/blog/2024/02/16/popular-git-config-options
       core.autocrlf = false;
       core.editor = "${lib.getExe pkgs.neovim}";
@@ -45,5 +45,10 @@
       "url \"git@gitlab.com:\"".pushInsteadOf = "https://gitlab.com/";
       "url \"git@gist.github.com:\"".pushInsteadOf = "https://gist.github.com/";
     };
+  };
+
+  programs.difftastic = {
+    enable = true;
+    git.enable = true;
   };
 }
