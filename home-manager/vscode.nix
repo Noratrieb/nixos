@@ -56,6 +56,7 @@
         "terminal.integrated.stickyScroll.enabled" = false;
         "chat.agent.enabled" = false;
         "workbench.secondarySideBar.defaultVisibility" = "hidden"; # fuck you for this naming, this is just ai garbage
+        "chat.disableAIFeatures" = true;
       };
       extensions = with pkgs.vscode-extensions; [
         bmalehorn.vscode-fish

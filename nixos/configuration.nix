@@ -178,9 +178,6 @@
     packages = with pkgs; [ fira-code monaspace font-awesome ];
   };
 
-
-  services.nixseparatedebuginfod.enable = true;
-
   users = {
     users = {
       nora = {
