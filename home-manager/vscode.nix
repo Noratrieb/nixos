@@ -55,6 +55,7 @@
         "terminal.integrated.scrollback" = 5000;
         "terminal.integrated.stickyScroll.enabled" = false;
         "chat.agent.enabled" = false;
+        "workbench.secondarySideBar.defaultVisibility" = "hidden"; # fuck you for this naming, this is just ai garbage
       };
       extensions = with pkgs.vscode-extensions; [
         bmalehorn.vscode-fish
