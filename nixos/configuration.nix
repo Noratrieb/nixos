@@ -116,7 +116,7 @@
     enable = true;
     enable32Bit = true; # for games stores??
     extraPackages = with pkgs; [
-      vaapiVdpau
+      libva-vdpau-driver # i have no idea what this is doing lol
     ];
   };
 
@@ -243,7 +243,7 @@
     fish
     unzip
     (steam.override {
-      extraPkgs = pkgs: [ glxinfo ];
+      extraPkgs = pkgs: [ mesa-demos ]; # i have no idea what this is doing lol
     }).run
     # Wine for 32 and 64 bit applications
     wineWowPackages.stable
