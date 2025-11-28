@@ -12,6 +12,7 @@
   systemd.timers.paperless-ngx-backup = {
     description = "paperless-ngx data backup to NAS";
     wantedBy = [ "timers.target" ];
+    after = [ "mnt-nas.mount" ];
     timerConfig = {
       Unit = "paperless-ngx-backup.service";
       OnCalendar = "daily UTC";
