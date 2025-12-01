@@ -37,6 +37,8 @@
           systemd-failed-units = {
             hide-on-ok = true; # Hide if there are zero failed units.
             format = "✗ {nr_failed}";
+            # https://github.com/Alexays/Waybar/issues/4241#issuecomment-3277122575
+            format-ok = "✓ there is an 'activating' unit";
             system = true; # monitor sytem units
             user = true; # monitor user units
           };
