@@ -37,6 +37,10 @@
                   name = "Github Notifications";
                   url = "https://github.com/notifications";
                 }
+                {
+                  name = "glove80 layout";
+                  url = "https://my.moergo.com/glove80/#/layout/user/ad4751c0-29af-4a98-ab4b-59c4bcf2ad94";
+                }
               ];
             }
           ];
