@@ -14,7 +14,7 @@ input {
 
             // For example:
             layout "ch"
-            options "compose:rctrl"
+            // options "compose:rctrl"  // i need rctrl for the glove80 so lets remove this for now
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
     }
