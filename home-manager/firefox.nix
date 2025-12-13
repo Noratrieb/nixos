@@ -39,7 +39,7 @@
                 }
                 {
                   name = "glove80 layout";
-                  url = "https://my.moergo.com/glove80/#/layout/user/ad4751c0-29af-4a98-ab4b-59c4bcf2ad94";
+                  url = "https://my.moergo.com/glove80/#/layout/user/4ade12f3-81d7-4342-8196-9c13c43ac94e";
                 }
               ];
             }
