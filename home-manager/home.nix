@@ -47,7 +47,6 @@ in
     customPkgs.run
     customPkgs.unpem
     discord
-    jetbrains.idea-ultimate
     obsidian
     prismlauncher
     spotify
