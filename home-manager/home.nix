@@ -50,6 +50,7 @@ in
     obsidian
     prismlauncher
     spotify
+    libreoffice
     rustup # rustup from nix for rust :)
     gamescope # so i can put it in steam startup command lines
     wl-clipboard
