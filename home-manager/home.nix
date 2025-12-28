@@ -61,6 +61,19 @@ in
         exec swaylock
       '';
     })
+    (pkgs.writeShellApplication {
+      name = "shell.nix";
+      text = ''
+        cat > shell.nix <<EOF
+        { pkgs ? import <nixpkgs> {} }: pkgs.mkShell {
+          buildInputs = with pkgs; [ ];
+          packages = with pkgs; [ ];
+        }
+        EOF
+
+        echo "use nix" > .envrc
+      '';
+    })
   ] ++ import ./common-packages.nix { inherit pkgs inputs; };
 
   # Nicely reload system units when changing configs
