@@ -21,6 +21,7 @@ in
     ./firefox.nix
     ./vscode.nix
     ./waybar.nix
+    ./wallpaper.nix
     ./swaylock.nix
     ./swaync.nix
   ];
