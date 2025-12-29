@@ -6,8 +6,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "Noratrieb";
       repo = "colouncher";
-      rev = "cd0c16497756b758ee184063e119f1bec2127f18";
-      hash = "sha256-PcbYBojWMzb855u8+sk6hfu1hpHwInEcNBGk0/qqYtw=";
+      rev = "bee16cced1e03419f31534d2811233f7aadd0043";
+      hash = "sha256-Aoyc2kk1xO4wfdi5+NT7Mhei2rvzaxP3Y9WifWqRN18=";
     }))
     { inherit pkgs; };
 in
@@ -24,6 +24,7 @@ in
     Service = {
       ExecStart = pkgs.lib.getExe pkg;
       Restart = "on-failure";
+      Type = "notify";
     };
 
     Install.WantedBy = [
