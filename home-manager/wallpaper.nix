@@ -5,16 +5,16 @@ let
   pkg = (import
     (pkgs.fetchFromGitHub {
       owner = "Noratrieb";
-      repo = "wallpapersc";
-      rev = "1943eec7c55a6ac9e9b143493d90f9870b31f23a";
-      hash = "sha256-AI2tnRz/NVyn+LyljMSUbxanqHzpduV2ex3yvbX/GR0=";
+      repo = "colouncher";
+      rev = "cd0c16497756b758ee184063e119f1bec2127f18";
+      hash = "sha256-PcbYBojWMzb855u8+sk6hfu1hpHwInEcNBGk0/qqYtw=";
     }))
     { inherit pkgs; };
 in
 {
-  systemd.user.services.wallpapersc = {
+  systemd.user.services.colouncher = {
     Unit = {
-      Description = "wallpaper daemon";
+      Description = "Color-based program-launching wallpaper for Wayland";
       PartOf = [
         config.wayland.systemd.target
       ];
@@ -22,7 +22,7 @@ in
       ConditionEnvironment = "WAYLAND_DISPLAY";
     };
     Service = {
-      ExecStart = "${pkg}/bin/wallpapersc";
+      ExecStart = pkgs.lib.getExe pkg;
       Restart = "on-failure";
     };
 
