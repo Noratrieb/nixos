@@ -6,8 +6,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "Noratrieb";
       repo = "wallpapersc";
-      rev = "ce0def46fd0ae8d36b65ede91e068c4bca2cf9a6";
-      hash = "sha256-GSBFoAElnkh0+adIqSPKwJlyYiwp4NDhsOpT+SoZv5I=";
+      rev = "1943eec7c55a6ac9e9b143493d90f9870b31f23a";
+      hash = "sha256-AI2tnRz/NVyn+LyljMSUbxanqHzpduV2ex3yvbX/GR0=";
     }))
     { inherit pkgs; };
 in
