@@ -6,8 +6,8 @@ let
     (pkgs.fetchFromGitHub {
       owner = "Noratrieb";
       repo = "colouncher";
-      rev = "bee16cced1e03419f31534d2811233f7aadd0043";
-      hash = "sha256-Aoyc2kk1xO4wfdi5+NT7Mhei2rvzaxP3Y9WifWqRN18=";
+      rev = "a68d0dff63c32f84354f97aed5ac52ce3e0fa284";
+      hash = "sha256-NhZMBKxqHCQSvvj2NjXUlCQ5JvRPdGTnftTxdciLlPQ=";
     }))
     { inherit pkgs; };
 in
@@ -25,6 +25,9 @@ in
       ExecStart = pkgs.lib.getExe pkg;
       Restart = "on-failure";
       Type = "notify";
+      Environment = [
+        "LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [pkgs.vulkan-loader]}"
+      ];
     };
 
     Install.WantedBy = [
