@@ -132,6 +132,9 @@
   };
   programs.waybar.enable = true;
 
+  # something is wrong https://github.com/NixOS/nixpkgs/issues/477219
+  services.speechd.enable = lib.mkForce false;
+
   # lol what https://github.com/NixOS/nixpkgs/issues/462935
   systemd.user.services.orca.wantedBy = lib.mkForce [ ];
 
