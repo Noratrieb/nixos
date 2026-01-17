@@ -1,11 +1,33 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+let localDir = "/home/nora/.local/share/paperless-ngx"; nasDir = "/mnt/nas/HEY/_Nora/paperless"; in {
+  services.paperless = {
+    enable = true;
+    dataDir = "${localDir}/data";
+    mediaDir = "${localDir}/media";
+    consumptionDir = "${nasDir}/consume";
+    address = "0.0.0.0";
+    port = 8010;
+    user = "nora";
+    environmentFile = "${localDir}/secrets-environment";
+    settings = {
+      PAPERLESS_TIME_ZONE = "Europe/Zurich";
+      PAPERLESS_ADMIN_USER = "nora";
+      PAPERLESS_OCR_LANGUAGE = "deu+eng";
+    };
+    exporter = {
+      enable = true;
+      directory = "${nasDir}/export";
+    };
+  };
+
+
   systemd.services.paperless-ngx-backup = {
     description = "paperless-ngx data backup to NAS";
     serviceConfig = {
       Type = "oneshot";
       User = "nora";
       ExecStart = ''
-        ${lib.getExe pkgs.rsync} -a -v --delete --exclude=redis /home/nora/.local/share/paperless-ngx/ /mnt/nas/HEY/_Nora/paperless/backup
+        ${lib.getExe pkgs.rsync} -a -v --delete --exclude=redis ${localDir}/ ${nasDir}/backup
       '';
     };
   };
