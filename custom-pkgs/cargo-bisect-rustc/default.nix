@@ -1,15 +1,15 @@
 pkgs: pkgs.rustPlatform.buildRustPackage {
   pname = "cargo-bisect-rustc";
-  version = "0.6.7";
+  version = "0.6.11";
 
   src = pkgs.fetchFromGitHub {
     owner = "rust-lang";
     repo = "cargo-bisect-rustc";
-    rev = "e61eb10bb7b5eacb1fe3244d18ccb059393d7fac";
-    hash = "sha256-rr0fU1Y5k2ScT8zpBz4VhMaUlbW/ze00ORz8dUNFIpI=";
+    rev = "995147f7863377b3831f84911d21d1895437eee7";
+    hash = "sha256-kQmQXMiZAh2zAXkxMoxlTfjrpXMIgXlJfwOsJPIVe94=";
   };
 
-  cargoHash = "sha256-4C63UsFlFAKaSXXwtO+u9yi3kvnLG8hKAnTQRKvwg2U=";
+  cargoHash = "sha256-WSO5LvdJkAorSwsICz9NAWKNM7x4aeNvhGLhJSO6Vi8=";
 
   patches =
     let
