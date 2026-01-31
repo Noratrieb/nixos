@@ -1,32 +1,11 @@
 diff --git a/src/toolchains.rs b/src/toolchains.rs
-index 16e68a0..5ce1c50 100644
+index a4be8cd..95e9d16 100644
 --- a/src/toolchains.rs
 +++ b/src/toolchains.rs
-@@ -34,6 +34,8 @@ pub(crate) enum InstallError {
-     TempDir(#[source] io::Error),
-     #[error("Could not move tempdir into destination: {0}")]
-     Move(#[source] io::Error),
-+    #[error("Could not patchelf")]
-+    Patchelf(#[source] io::Error),
-     #[error("Could not run subcommand {cmd}: {err}")]
-     Subcommand {
-         cmd: String,
-@@ -208,7 +210,9 @@ impl Toolchain {
-             })?;
-         }
+@@ -19,6 +19,49 @@ use xz2::read::XzDecoder;
  
--        fs::rename(tmpdir.into_path(), dest).map_err(InstallError::Move)
-+        fs::rename(tmpdir.into_path(), &dest).map_err(InstallError::Move)?;
-+        nix_patchelf(dest).map_err(InstallError::Patchelf)?;
-+        Ok(())
-     }
+ use crate::{Config, GitDate};
  
-     pub(crate) fn remove(&self, dl_params: &DownloadParams) -> io::Result<()> {
-@@ -542,3 +546,46 @@ fn download_tarball(
-         res => res,
-     }
- }
-+
 +fn nix_patchelf(mut toolchain_path: PathBuf) -> Result<(), io::Error> {
 +    toolchain_path.push("bin");
 +
@@ -69,3 +48,17 @@ index 16e68a0..5ce1c50 100644
 +
 +    Ok(())
 +}
++
+ pub const YYYY_MM_DD: &str = "%Y-%m-%d";
+ 
+ pub(crate) const NIGHTLY_SERVER: &str = "https://static.rust-lang.org/dist";
+@@ -208,7 +251,8 @@ impl Toolchain {
+             })?;
+         }
+ 
+-        fs::rename(tmpdir.keep(), dest).map_err(InstallError::Move)
++        fs::rename(tmpdir.into_path(), &dest).map_err(InstallError::Move)?;
++        nix_patchelf(dest).map_err(InstallError::Move)
+     }
+ 
+     pub(crate) fn remove(&self, dl_params: &DownloadParams) -> io::Result<()> {
