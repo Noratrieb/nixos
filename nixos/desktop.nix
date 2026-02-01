@@ -82,6 +82,7 @@
     tailscale
     os-prober
     usbutils # steam client logs complain about lsusb
+    kdiskmark
   ];
 
   networking.firewall = {

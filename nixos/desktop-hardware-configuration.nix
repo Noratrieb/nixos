@@ -20,6 +20,18 @@
       fsType = "ext4";
     };
 
+  fileSystems."/mnt/1" =
+    {
+      device = "/dev/disk/by-uuid/8ceed88b-8e66-403e-a0f3-16907c228c6b";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/2" =
+    {
+      device = "/dev/disk/by-uuid/070623af-08eb-4496-b16b-018063336b0a";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot/efi" =
     {
       device = "/dev/disk/by-uuid/2027-FC69";
