@@ -47,6 +47,7 @@ in
     customPkgs.cargo-bisect-rustc
     customPkgs.run
     customPkgs.unpem
+    customPkgs.flash-glove80
     discord
     obsidian
     prismlauncher

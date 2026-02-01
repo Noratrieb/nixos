@@ -3,6 +3,7 @@ pkgs: {
   sl = import ./sl { inherit pkgs; };
   run = import ./run { inherit pkgs; };
   unpem = import ./unpem { inherit pkgs; };
+  flash-glove80 = import ./flash-glove80 { inherit pkgs; };
   u = import ./u { inherit pkgs; };
   x = import ./x { inherit pkgs; };
 }
