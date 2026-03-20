@@ -119,6 +119,12 @@
           version = "1.158.12";
           sha256 = "sha256-+HLAkxU9hIhP8tn0jVI2L2HcYusmHSpoaG7dHA7WgxA=";
         }
+        {
+          publisher = "styled-components";
+          name = "vscode-styled-components";
+          version = "1.7.8";
+          sha256 = "sha256-VoLAjBcAizTxd+BHwXoNSlSxqXno3PjVxaickLCtnsw=";
+        }
       ] ++ [
         ((pkgs.vscode-utils.buildVscodeExtension {
           pname = "riverdelta";
