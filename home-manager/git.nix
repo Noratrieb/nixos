@@ -2,6 +2,8 @@
   programs.git = {
     enable = true;
 
+    signing.format = false;
+
     settings = {
       user = {
         name = "Noratrieb";

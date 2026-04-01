@@ -89,7 +89,7 @@
             format = " {status}";
             format-disabled = ""; # an empty format will hide the module
             format-connected = " {num_connections} connected";
-            on-click = lib.getExe' pkgs.blueberry "blueberry";
+            on-click = lib.getExe' pkgs.blueman "blueman";
           };
           pulseaudio = {
             # "scroll-step": 1, // %, can be a float
