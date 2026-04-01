@@ -252,11 +252,10 @@
       extraPkgs = pkgs: [ mesa-demos ]; # i have no idea what this is doing lol
     }).run
     # Wine for 32 and 64 bit applications
-    wineWowPackages.stable
+    wineWow64Packages.stable
     lutris
     virt-manager
     podman
-    neofetch # for the grub theme
     fastfetch
     podman-compose
     man-pages
@@ -304,7 +303,7 @@
     };
     docker.enable = true;
     virtualbox.host = {
-      enable = true;
+      enable = false; # failed to build?
     };
   };
 
