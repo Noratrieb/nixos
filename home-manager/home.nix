@@ -56,7 +56,9 @@ in
     rustup # rustup from nix for rust :)
     gamescope # so i can put it in steam startup command lines
     wl-clipboard
-    olympus
+    (olympus.override {
+      celesteWrapper = "steam-run";
+    })
     archipelago
     (pkgs.writeShellApplication {
       name = "lock-and-power-off-screen";
