@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
 
-    signing.format = false;
+    signing.format = null;
 
     settings = {
       user = {

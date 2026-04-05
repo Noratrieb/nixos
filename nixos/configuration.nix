@@ -289,6 +289,11 @@
 
   programs.java.enable = true;
 
+  programs.nix-ld = {
+    # i love programs that work
+    enable = true;
+  };
+
   virtualisation = {
     libvirtd = {
       enable = true;
