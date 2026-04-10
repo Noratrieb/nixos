@@ -281,6 +281,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    extest.enable = true; # for potentially working controllers
   };
 
   programs.fish = {
