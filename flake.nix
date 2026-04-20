@@ -14,9 +14,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme/b6f8a3a7e2fd22d72e2dbdaf563ad0bcb5c78e45";
-    minegrub-theme.inputs.nixpkgs.follows = "nixpkgs";
-
     niri.url = "github:sodiboo/niri-flake";
 
     clippyboard.url = "github:Noratrieb/clippyboard";
@@ -36,7 +33,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./nixos/desktop.nix
-          inputs.minegrub-theme.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
