@@ -8,6 +8,22 @@
 }:
 let
   customPkgs = import ../custom-pkgs/default.nix pkgs;
+  fuzzel-launch-prefix = (pkgs.writeShellApplication {
+    name = "fuzzel-launch-prefix";
+    text = ''
+      name=$(basename "$1")
+
+      # https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
+      # https://github.com/niri-wm/niri/blob/f717ae030fe56fc52522ebef69f17f3f09064ac4/src/utils/spawning.rs#L429
+      re='(.*)[^a-zA-Z0-9:_\.]+(.*)'
+      while [[ $name =~ $re ]]; do
+        # niri doesn't just yeet it out but encode it but that's too complicated for us
+        name="$${BASH_REMATCH[1]}$${BASH_REMATCH[2]}"
+      done
+
+      exec systemd-run --scope --user --unit "app-$name" "$@"
+    '';
+  });
 in
 {
   # You can import other home-manager modules here
@@ -71,7 +87,7 @@ in
     (pkgs.writeShellApplication {
       name = "fuzzel-in-niri";
       text = ''
-        ${lib.getExe pkgs.fuzzel} --launch-prefix "${lib.getExe pkgs.niri} msg action spawn --"
+        ${lib.getExe pkgs.fuzzel} --launch-prefix "${lib.getExe fuzzel-launch-prefix}"
       '';
     })
     (pkgs.writeShellApplication {
