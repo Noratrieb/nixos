@@ -356,7 +356,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "alacritty"; }
-    Mod+D { spawn "fuzzel"; }
+    Mod+D { spawn "fuzzel-in-niri"; }
     Super+Alt+L { spawn "lock-and-power-off-screen"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

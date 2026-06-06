@@ -3,6 +3,7 @@
 
 { pkgs
 , inputs
+, lib
 , ...
 }:
 let
@@ -65,6 +66,12 @@ in
       text = ''
         niri msg action power-off-monitors
         exec swaylock
+      '';
+    })
+    (pkgs.writeShellApplication {
+      name = "fuzzel-in-niri";
+      text = ''
+        ${lib.getExe pkgs.fuzzel} --launch-prefix "${lib.getExe pkgs.niri} msg action spawn --"
       '';
     })
     (pkgs.writeShellApplication {
