@@ -1,7 +1,6 @@
 { pkgs, config, ... }: {
   imports = [
     ./desktop-hardware-configuration.nix
-    ./paperless.nix
     ./configuration.nix
   ];
 
@@ -43,6 +42,82 @@
 
   programs.coolercontrol.enable = true;
 
+  # it would be cool if this didnt use up so many different ports...
+  # maybe a network namespace and bridge or something??
+  # unix sockets dont appear to be supported sadly
+  services.victoriametrics.enable = true;
+  services.vmagent = {
+    enable = true;
+    remoteWrite.url = "http://127.0.0.1:8428/api/v1/write";
+    prometheusConfig = {
+      scrape_configs = [
+        {
+          job_name = "node-exporter";
+          static_configs = [{ targets = [ "127.0.0.1:9100" ]; }];
+        }
+        {
+          job_name = "cadvisor";
+          static_configs = [{ targets = [ "127.0.0.1:8080" ]; }];
+        }
+        {
+          job_name = "systemd";
+          static_configs = [{ targets = [ "127.0.0.1:9558" ]; }];
+        }
+        {
+          job_name = "coolercontrol";
+          authorization = {
+            type = "Bearer";
+            credentials = "cc_5fed8f3b7bd44424b7ffc67cce940e55";
+          };
+          static_configs = [{ targets = [ "127.0.0.1:11987" ]; }];
+        }
+      ];
+    };
+  };
+  services.prometheus.exporters = {
+    node.enable = true;
+    systemd.enable = true;
+  };
+  services.cadvisor = {
+    enable = true;
+    extraOptions = [
+      # significantly decreases CPU usage (https://github.com/google/cadvisor/issues/2523)
+      "--housekeeping_interval=30s"
+    ];
+  };
+  services.grafana = {
+    enable = true;
+
+    settings = {
+      security = {
+        # here are my secrets, use them while they're hot
+        admin_user = "admin";
+        admin_password = "admin";
+        secret_key = "SW2YcwTIb9zpOOhoPsMm";
+      };
+      server.http_port = 4444;
+    };
+
+    declarativePlugins = [
+      pkgs.grafanaPlugins.victoriametrics-metrics-datasource
+    ];
+
+    provision = {
+      enable = true;
+      datasources.settings = {
+        apiVersion = 1;
+        datasources = [
+          {
+            name = "victoriametrics";
+            type = "victoriametrics-metrics-datasource";
+            access = "proxy";
+            url = "http://127.0.0.1:8428";
+          }
+        ];
+      };
+    };
+  };
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
@@ -80,7 +155,11 @@
   networking.firewall = {
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ /*SSH*/ 22 ];
+    allowedTCPPorts = [
+      /*SSH*/
+      22
+      11434
+    ];
 
     # https://github.com/tailscale/tailscale/issues/4432#issuecomment-1112819111
     checkReversePath = "loose";
