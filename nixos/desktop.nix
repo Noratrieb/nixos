@@ -35,8 +35,6 @@
   };
 
   hardware.nvidia = {
-    # https://github.com/NixOS/nixpkgs/issues/299944#issuecomment-2027246826
-    modesetting.enable = true;
     open = true;
   };
 
