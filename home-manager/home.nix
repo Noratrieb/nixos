@@ -11,17 +11,14 @@ let
   fuzzel-launch-prefix = (pkgs.writeShellApplication {
     name = "fuzzel-launch-prefix";
     text = ''
-      name=$(basename "$1")
+      name=$(basename "$1") 
 
-      # https://stackoverflow.com/questions/13043344/search-and-replace-in-bash-using-regular-expressions
-      # https://github.com/niri-wm/niri/blob/f717ae030fe56fc52522ebef69f17f3f09064ac4/src/utils/spawning.rs#L429
-      re='(.*)[^a-zA-Z0-9:_\.]+(.*)'
-      while [[ $name =~ $re ]]; do
-        # niri doesn't just yeet it out but encode it but that's too complicated for us
-        name="$${BASH_REMATCH[1]}$${BASH_REMATCH[2]}"
-      done
+      random_suffix=$(${lib.getExe pkgs.openssl_3} rand -base64 9)
 
-      exec systemd-run --scope --user --unit "app-$name" "$@"
+      escaped_name=$(${lib.getExe' pkgs.systemd "systemd-escape"} "$name")
+      escaped_suffix=$(${lib.getExe' pkgs.systemd "systemd-escape"} "$random_suffix")
+
+      exec ${lib.getExe' pkgs.systemd "systemd-run"} --scope --user --unit "app-$escaped_name-$escaped_suffix" "$@"
     '';
   });
 in
