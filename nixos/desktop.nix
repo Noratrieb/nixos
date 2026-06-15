@@ -65,7 +65,7 @@
           job_name = "coolercontrol";
           authorization = {
             type = "Bearer";
-            credentials = "cc_5fed8f3b7bd44424b7ffc67cce940e55";
+            credentials = "cc_da210d0100984f25849dde21b5f3d4be";
           };
           static_configs = [{ targets = [ "127.0.0.1:11987" ]; }];
         }
