@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles = {
       nora = {
         id = 0;
@@ -12,6 +13,7 @@
           tampermonkey
           sidebery
           darkreader
+          sponsorblock
         ];
 
         bookmarks = {
