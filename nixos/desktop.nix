@@ -116,6 +116,11 @@
     };
   };
 
+  hardware.openrazer = {
+    enable = true;
+    users = [ "nora" ];
+  };
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
