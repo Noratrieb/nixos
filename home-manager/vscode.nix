@@ -44,6 +44,7 @@
         "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "[vue]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         "[typescriptreact]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
         # Generic
         "window.zoomLevel" = 1;
