@@ -82,6 +82,7 @@
         tomoki1207.pdf
         usernamehw.errorlens
         vadimcn.vscode-lldb
+        vue.volar
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           publisher = "dtsvet";
