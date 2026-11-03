@@ -13,7 +13,7 @@ let
     text = ''
       name=$(basename "$1") 
 
-      random_suffix=$(${lib.getExe pkgs.openssl_3} rand -base64 9)
+      random_suffix=$(${lib.getExe pkgs.openssl} rand -base64 9)
 
       escaped_name=$(${lib.getExe' pkgs.systemd "systemd-escape"} "$name")
       escaped_suffix=$(${lib.getExe' pkgs.systemd "systemd-escape"} "$random_suffix")

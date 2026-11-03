@@ -253,7 +253,6 @@
     }).run
     # Wine for 32 and 64 bit applications
     wineWow64Packages.stable
-    lutris
     virt-manager
     podman
     fastfetch
