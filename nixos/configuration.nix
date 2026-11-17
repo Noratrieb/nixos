@@ -268,6 +268,7 @@
     mpv
     wl-mirror
     signal-desktop
+    brightnessctl # used by the niri config
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

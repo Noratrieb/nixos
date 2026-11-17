@@ -373,6 +373,12 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
     XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
 
+    // it would be nice to be able to have Up do *1.5 and Down do /1.5 on the linear curve
+    // but that would require a custom script
+    // and i'm gaming right now
+    XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "set" "-e" "+10%"; }
+    XF86MonBrightnessDown  allow-when-locked=true { spawn "brightnessctl" "set" "-e" "10%-"; }
+
     Mod+Q { close-window; }
 
     Mod+Left  { focus-column-left; }
