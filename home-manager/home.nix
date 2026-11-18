@@ -62,6 +62,7 @@ in
     customPkgs.run
     customPkgs.unpem
     customPkgs.flash-glove80
+    customPkgs.expbrightness
     discord
     obsidian
     prismlauncher

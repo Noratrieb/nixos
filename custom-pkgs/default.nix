@@ -1,5 +1,6 @@
 pkgs: {
   cargo-bisect-rustc = import ./cargo-bisect-rustc/default.nix pkgs;
+  expbrightness = import ./expbrightness { inherit pkgs; };
   sl = import ./sl { inherit pkgs; };
   run = import ./run { inherit pkgs; };
   unpem = import ./unpem { inherit pkgs; };
