@@ -45,6 +45,8 @@ flash_side() {
   sudo mount "$disk" "$mountpoint"
   echo "copying $image to $side_descr"
   sudo cp "$image" "$mountpoint/CURRENT.UF2"
+  echo "syncing data to $side_descr..."
+  sync
   echo "done flashing $side_descr"
 }
 
